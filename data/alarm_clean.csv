@@ -1,209 +1,209 @@
 ﻿국가명,영문국가명,ISO 코드,대륙 코드,영문 대륙명,한글 대륙명,경보단계,경보내용,iso3
-가나,Ghana,GH,AF,Africa,아프리카,2,전 지역,
-가봉,Gabon,GA,AF,Africa,아프리카,2,전 지역,
-가이아나,Guyana,GY,LA,Latin America,중남미,2,전 지역,
-감비아,Gambia,GM,AF,Africa,아프리카,1,전 지역,
-과테말라,Guatemala,GT,LA,Latin America,중남미,2,전 지역,
+가나,Ghana,GH,AF,Africa,아프리카,2,전 지역,GHA
+가봉,Gabon,GA,AF,Africa,아프리카,2,전 지역,GAB
+가이아나,Guyana,GY,LA,Latin America,중남미,2,전 지역,GUY
+감비아,Gambia,GM,AF,Africa,아프리카,1,전 지역,GMB
+과테말라,Guatemala,GT,LA,Latin America,중남미,2,전 지역,GTM
 그리스,Greece,GR,EU,Europe,유럽,1,전 지역,GRC
-기니,Guinea,GN,AF,Africa,아프리카,2,전 지역,
-기니비사우,Guinea-Bissau,GW,AF,Africa,아프리카,2,전 지역,
-나미비아,Namibia,NA,AF,Africa,아프리카,1,전 지역,
-나우루,Nauru,NR,OC,Oceania,오세아니아,1,전 지역,
-나이지리아,Nigeria,NG,AF,Africa,아프리카,3,2단계를 제외한 전지역,
-나이지리아,Nigeria,NG,AF,Africa,아프리카,2,"주(에보니,에키티,에누구,라고스,오군,온도,오순,오요,베누에)",
-남수단,South Sudan,SS,AF,Africa,아프리카,3,전 지역,
-남아프리카공화국,South Africa,ZA,AF,Africa,아프리카,2,전 지역,
-네팔연방,Nepal,NP,WA,Western South Asia,서남아시아,1,전 지역,
-니제르,Niger,NE,AF,Africa,아프리카,4,수도 니아메 제외 전 지역,
-니제르,Niger,NE,AF,Africa,아프리카,3,니아메,
-니카라과,Nicaragua,NI,LA,Latin America,중남미,2,전 지역,
+기니,Guinea,GN,AF,Africa,아프리카,2,전 지역,GIN
+기니비사우,Guinea-Bissau,GW,AF,Africa,아프리카,2,전 지역,GNB
+나미비아,Namibia,NA,AF,Africa,아프리카,1,전 지역,NAM
+나우루,Nauru,NR,OC,Oceania,오세아니아,1,전 지역,NRU
+나이지리아,Nigeria,NG,AF,Africa,아프리카,3,2단계를 제외한 전지역,NGA
+나이지리아,Nigeria,NG,AF,Africa,아프리카,2,"주(에보니,에키티,에누구,라고스,오군,온도,오순,오요,베누에)",NGA
+남수단,South Sudan,SS,AF,Africa,아프리카,3,전 지역,SSD
+남아프리카공화국,South Africa,ZA,AF,Africa,아프리카,2,전 지역,ZAF
+네팔연방,Nepal,NP,WA,Western South Asia,서남아시아,1,전 지역,NPL
+니제르,Niger,NE,AF,Africa,아프리카,4,수도 니아메 제외 전 지역,NER
+니제르,Niger,NE,AF,Africa,아프리카,3,니아메,NER
+니카라과,Nicaragua,NI,LA,Latin America,중남미,2,전 지역,NIC
 덴마크,Denmark,DK,EU,Europe,유럽,1,전 지역,DNK
-도미니카공화국,Dominican Republic,DO,LA,Latin America,중남미,2,전 지역,
-동티모르,Timor-Leste,TL,SE,Southeast Asia,동남아시아,1,전 지역,
-라오스,Laos,LA,SE,Southeast Asia,동남아시아,4,골든트라이앵글 경제특구,
-라오스,Laos,LA,SE,Southeast Asia,동남아시아,1,4단계 지정 지역을 제외한 지역,
-라이베리아,Liberia,LR,AF,Africa,아프리카,2,전 지역,
-러시아,Russia,RU,RU,Russia,러시아·중앙아시아,3,"북카프카즈 지역(체첸/다게스탄/세베로오세티아/카바르디노발카르/잉귀시/까라차예보체르케스카야/아디게이) 및 우크라이나 접경지역(4단계 제외 로스토프, 벨고로드, 보로네시, 브랸스크 주 및 오룔 주 일부(샤블리키노, 드미트롭스크, 사스코보, 크로믜, 트로스나 5개 지역))",
-러시아,Russia,RU,RU,Russia,러시아·중앙아시아,4,우크라이나 접경지역(쿠르스크주 전체 및 로스토프·벨고로드·보로네시·브랸스크 지역 내 우크라이나 국경에서 30km 구간),
-레바논,Lebanon,LB,ME,Middle East,중동,4,"남부 이스라엘 접경 지역(블루라인으로부터 5km 포함), 남부주, 나바티예주, 다히예의 일부 지역(베이루트 공항 및 M51 도로 제외),바알벡헤르멜주,베카주(서베카구,라샤야구)",
-레바논,Lebanon,LB,ME,Middle East,중동,3,4단계 지정 지역을 제외한 지역,
-레소토,Lesotho,LS,AF,Africa,아프리카,2,전 지역,
-루마니아,Romania,RO,EU,Europe,유럽,2,우크라이나 접경 20KM지역,
-르완다,Rwanda,RW,AF,Africa,아프리카,3,루바부 주,
-르완다,Rwanda,RW,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-리비아,Libya,LY,ME,Middle East,중동,4,전 지역,
-리투아니아,Lithuania,LT,EU,Europe,유럽,1,전 지역,
-리히텐슈타인,Liechtenstein,LI,EU,Europe,유럽,1,전 지역,
-마다가스카르,Madagascar,MG,AF,Africa,아프리카,2,전 지역,
-마셜제도,Marshall Islands,MH,OC,Oceania,오세아니아,1,전 지역,
-마이크로네시아연방,Federated States of Micronesia,FM,OC,Oceania,오세아니아,1,전 지역,
-마카오,Macao,MO,NE,Northeast Asia,동북아시아,1,전 지역,
-말라위,Malawi,MW,AF,Africa,아프리카,1,전 지역,
+도미니카공화국,Dominican Republic,DO,LA,Latin America,중남미,2,전 지역,DOM
+동티모르,Timor-Leste,TL,SE,Southeast Asia,동남아시아,1,전 지역,TLS
+라오스,Laos,LA,SE,Southeast Asia,동남아시아,4,골든트라이앵글 경제특구,LAO
+라오스,Laos,LA,SE,Southeast Asia,동남아시아,1,4단계 지정 지역을 제외한 지역,LAO
+라이베리아,Liberia,LR,AF,Africa,아프리카,2,전 지역,LBR
+러시아,Russia,RU,RU,Russia,러시아·중앙아시아,3,"북카프카즈 지역(체첸/다게스탄/세베로오세티아/카바르디노발카르/잉귀시/까라차예보체르케스카야/아디게이) 및 우크라이나 접경지역(4단계 제외 로스토프, 벨고로드, 보로네시, 브랸스크 주 및 오룔 주 일부(샤블리키노, 드미트롭스크, 사스코보, 크로믜, 트로스나 5개 지역))",RUS
+러시아,Russia,RU,RU,Russia,러시아·중앙아시아,4,우크라이나 접경지역(쿠르스크주 전체 및 로스토프·벨고로드·보로네시·브랸스크 지역 내 우크라이나 국경에서 30km 구간),RUS
+레바논,Lebanon,LB,ME,Middle East,중동,4,"남부 이스라엘 접경 지역(블루라인으로부터 5km 포함), 남부주, 나바티예주, 다히예의 일부 지역(베이루트 공항 및 M51 도로 제외),바알벡헤르멜주,베카주(서베카구,라샤야구)",LBN
+레바논,Lebanon,LB,ME,Middle East,중동,3,4단계 지정 지역을 제외한 지역,LBN
+레소토,Lesotho,LS,AF,Africa,아프리카,2,전 지역,LSO
+루마니아,Romania,RO,EU,Europe,유럽,2,우크라이나 접경 20KM지역,ROU
+르완다,Rwanda,RW,AF,Africa,아프리카,3,루바부 주,RWA
+르완다,Rwanda,RW,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,RWA
+리비아,Libya,LY,ME,Middle East,중동,4,전 지역,LBY
+리투아니아,Lithuania,LT,EU,Europe,유럽,1,전 지역,LTU
+리히텐슈타인,Liechtenstein,LI,EU,Europe,유럽,1,전 지역,LIE
+마다가스카르,Madagascar,MG,AF,Africa,아프리카,2,전 지역,MDG
+마셜제도,Marshall Islands,MH,OC,Oceania,오세아니아,1,전 지역,MHL
+마이크로네시아연방,Federated States of Micronesia,FM,OC,Oceania,오세아니아,1,전 지역,FSM
+마카오,Macao,MO,NE,Northeast Asia,동북아시아,1,전 지역,MAC
+말라위,Malawi,MW,AF,Africa,아프리카,1,전 지역,MWI
 말레이시아,Malaysia,MY,SE,Southeast Asia,동남아시아,3,사바주 동부도서 지역 및 동부해안,MYS
 말레이시아,Malaysia,MY,SE,Southeast Asia,동남아시아,2,사바주 동부 해안,MYS
 말레이시아,Malaysia,MY,SE,Southeast Asia,동남아시아,1,3단계 지정 지역을 제외한 지역,MYS
-말리,Mali,ML,AF,Africa,아프리카,4,전 지역,
+말리,Mali,ML,AF,Africa,아프리카,4,전 지역,MLI
 멕시코,Mexico,MX,LA,Latin America,중남미,3,"치아파스주, 시날로아주",MEX
 멕시코,Mexico,MX,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,MEX
-모로코,Morocco,MA,ME,Middle East,중동,3,서사하라 내 모래방어벽 동쪽,
-모로코,Morocco,MA,ME,Middle East,중동,2,서사하라 내 모래방어벽 서쪽,
-모로코,Morocco,MA,ME,Middle East,중동,1,서사하라 이외 지역,
-모리타니아,Mauritania,MR,AF,Africa,아프리카,3,2단계 지정 지역을 제외한 지역,
-모리타니아,Mauritania,MR,AF,Africa,아프리카,2,"누악쇼트, 누아디브, 인시리, 트라르자 및 아다르(우아단까지 일부지역)",
-모잠비크,Mozambique,MZ,AF,Africa,아프리카,3,카보델가도 주,
-모잠비크,Mozambique,MZ,AF,Africa,아프리카,2,3단계 및 특별여행주의보 지정 지역을 제외한 지역,
-몰디브,Maldives,MV,WA,Western South Asia,서남아시아,1,전 지역,
-몰타,Malta,MT,EU,Europe,유럽,1,전 지역,
-몽골,Mongolia,MN,NE,Northeast Asia,동북아시아,1,전 지역,
-미얀마,Myanmar,MM,SE,Southeast Asia,동남아시아,4,"샨주 북부 및 동부, 까야주, 라카인주, 미야와디 지역",
-미얀마,Myanmar,MM,SE,Southeast Asia,동남아시아,3,4단계 지정 지역을 제외한 지역,
-미합중국,United States of America,US,NA,North America,북미,1,하와이 제외한 지역,
-바누아투,Vanuatu,VU,OC,Oceania,오세아니아,2,전 지역,
-바레인,Bahrain,BH,ME,Middle East,중동,3,전 지역,
-방글라데시,Bangladesh,BD,WA,Western South Asia,서남아시아,3,동남부 치타공 힐 트랙스 지역,
-방글라데시,Bangladesh,BD,WA,Western South Asia,서남아시아,2,3단계 지정 지역을 제외한 지역,
-베냉,Benin,BJ,AF,Africa,아프리카,3,북부 부르키나파소 접경지역(Pendjari 국립공원 및 W 국립공원),
-베냉,Benin,BJ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-베네수엘라볼리바르,Venezuela,VE,LA,Latin America,중남미,3,전 지역,
+모로코,Morocco,MA,ME,Middle East,중동,3,서사하라 내 모래방어벽 동쪽,MAR
+모로코,Morocco,MA,ME,Middle East,중동,2,서사하라 내 모래방어벽 서쪽,MAR
+모로코,Morocco,MA,ME,Middle East,중동,1,서사하라 이외 지역,MAR
+모리타니아,Mauritania,MR,AF,Africa,아프리카,3,2단계 지정 지역을 제외한 지역,MRT
+모리타니아,Mauritania,MR,AF,Africa,아프리카,2,"누악쇼트, 누아디브, 인시리, 트라르자 및 아다르(우아단까지 일부지역)",MRT
+모잠비크,Mozambique,MZ,AF,Africa,아프리카,3,카보델가도 주,MOZ
+모잠비크,Mozambique,MZ,AF,Africa,아프리카,2,3단계 및 특별여행주의보 지정 지역을 제외한 지역,MOZ
+몰디브,Maldives,MV,WA,Western South Asia,서남아시아,1,전 지역,MDV
+몰타,Malta,MT,EU,Europe,유럽,1,전 지역,MLT
+몽골,Mongolia,MN,NE,Northeast Asia,동북아시아,1,전 지역,MNG
+미얀마,Myanmar,MM,SE,Southeast Asia,동남아시아,4,"샨주 북부 및 동부, 까야주, 라카인주, 미야와디 지역",MMR
+미얀마,Myanmar,MM,SE,Southeast Asia,동남아시아,3,4단계 지정 지역을 제외한 지역,MMR
+미합중국,United States of America,US,NA,North America,북미,1,하와이 제외한 지역,USA
+바누아투,Vanuatu,VU,OC,Oceania,오세아니아,2,전 지역,VUT
+바레인,Bahrain,BH,ME,Middle East,중동,3,전 지역,BHR
+방글라데시,Bangladesh,BD,WA,Western South Asia,서남아시아,3,동남부 치타공 힐 트랙스 지역,BGD
+방글라데시,Bangladesh,BD,WA,Western South Asia,서남아시아,2,3단계 지정 지역을 제외한 지역,BGD
+베냉,Benin,BJ,AF,Africa,아프리카,3,북부 부르키나파소 접경지역(Pendjari 국립공원 및 W 국립공원),BEN
+베냉,Benin,BJ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,BEN
+베네수엘라볼리바르,Venezuela,VE,LA,Latin America,중남미,3,전 지역,VEN
 베트남,Vietnam,VN,SE,Southeast Asia,동남아시아,1,전 지역,VNM
 벨기에,Belgium,BE,EU,Europe,유럽,1,전 지역,BEL
-벨라루스,Belarus,BY,EU,Europe,유럽,4,벨라루스 브레스트 고멜 지역 내 우크라이나 국경에서 30km,
-벨라루스,Belarus,BY,EU,Europe,유럽,3,"4단계, 특별여행주의보 지정 지역을 제외한 지역",
-벨리즈,Belize,BZ,LA,Latin America,중남미,2,전 지역,
-보스니아헤르체고비나,Bosnia-Herzegovina,BA,EU,Europe,유럽,1,전 지역,
-보츠와나,Botswana,BW,AF,Africa,아프리카,1,전 지역,
-볼리비아,Bolivia,BO,LA,Latin America,중남미,3,라파스 주,
-부룬디,Burundi,BI,AF,Africa,아프리카,3,2단계 지정 지역을 제외한 지역,
-부룬디,Burundi,BI,AF,Africa,아프리카,2,부줌부라시,
-부르키나파소,Burkina Faso,BF,AF,Africa,아프리카,3,전 지역,
-부탄,Bhutan,BT,WA,Western South Asia,서남아시아,1,전 지역,
+벨라루스,Belarus,BY,EU,Europe,유럽,4,벨라루스 브레스트 고멜 지역 내 우크라이나 국경에서 30km,BLR
+벨라루스,Belarus,BY,EU,Europe,유럽,3,"4단계, 특별여행주의보 지정 지역을 제외한 지역",BLR
+벨리즈,Belize,BZ,LA,Latin America,중남미,2,전 지역,BLZ
+보스니아헤르체고비나,Bosnia-Herzegovina,BA,EU,Europe,유럽,1,전 지역,BIH
+보츠와나,Botswana,BW,AF,Africa,아프리카,1,전 지역,BWA
+볼리비아,Bolivia,BO,LA,Latin America,중남미,3,라파스 주,BOL
+부룬디,Burundi,BI,AF,Africa,아프리카,3,2단계 지정 지역을 제외한 지역,BDI
+부룬디,Burundi,BI,AF,Africa,아프리카,2,부줌부라시,BDI
+부르키나파소,Burkina Faso,BF,AF,Africa,아프리카,3,전 지역,BFA
+부탄,Bhutan,BT,WA,Western South Asia,서남아시아,1,전 지역,BTN
 브라질,Brazil,BR,LA,Latin America,중남미,2,전 지역,BRA
-사우디아라비아,Saudi Arabia,SA,ME,Middle East,중동,3,"사우디-예멘 국경 인근 180km 지역(지잔 주, 아브하(Abha), 카미스 무샤이트(Khamis Mushait)시 포함),샤이바 유전,프린스술탄 공군기지,라스 타누라,얀부, 주베일",
-사이프러스,Cyprus,CY,EU,Europe,유럽,3,파마구스타 내 바로샤 지역,
-사이프러스,Cyprus,CY,EU,Europe,유럽,2,"1, 3단계 지정 지역을 제외한 지역",
-사이프러스,Cyprus,CY,EU,Europe,유럽,1,남부 지역,
-산마리노,San Marino,SM,EU,Europe,유럽,1,전 지역,
-상투메프린시페,Sâo Tomé & Principe,ST,AF,Africa,아프리카,1,전 지역,
-세네갈,Senegal,SN,AF,Africa,아프리카,1,특별여행주의보를 제외한 전 지역,
-소말리아,Somalia,SO,AF,Africa,아프리카,4,전 지역,
-솔로몬제도,Solomon Islands,SB,OC,Oceania,오세아니아,2,전 지역,
-수단,Sudan,SD,AF,Africa,아프리카,4,전 지역,
-수리남,Suriname,SR,LA,Latin America,중남미,2,전 지역,
+사우디아라비아,Saudi Arabia,SA,ME,Middle East,중동,3,"사우디-예멘 국경 인근 180km 지역(지잔 주, 아브하(Abha), 카미스 무샤이트(Khamis Mushait)시 포함),샤이바 유전,프린스술탄 공군기지,라스 타누라,얀부, 주베일",SAU
+사이프러스,Cyprus,CY,EU,Europe,유럽,3,파마구스타 내 바로샤 지역,CYP
+사이프러스,Cyprus,CY,EU,Europe,유럽,2,"1, 3단계 지정 지역을 제외한 지역",CYP
+사이프러스,Cyprus,CY,EU,Europe,유럽,1,남부 지역,CYP
+산마리노,San Marino,SM,EU,Europe,유럽,1,전 지역,SMR
+상투메프린시페,Sâo Tomé & Principe,ST,AF,Africa,아프리카,1,전 지역,STP
+세네갈,Senegal,SN,AF,Africa,아프리카,1,특별여행주의보를 제외한 전 지역,SEN
+소말리아,Somalia,SO,AF,Africa,아프리카,4,전 지역,SOM
+솔로몬제도,Solomon Islands,SB,OC,Oceania,오세아니아,2,전 지역,SLB
+수단,Sudan,SD,AF,Africa,아프리카,4,전 지역,SDN
+수리남,Suriname,SR,LA,Latin America,중남미,2,전 지역,SUR
 스리랑카,Sri Lanka,LK,WA,Western South Asia,서남아시아,1,전 지역,LKA
 스위스,Swiss,CH,EU,Europe,유럽,1,전 지역,CHE
 스페인,Spain,ES,EU,Europe,유럽,1,전 지역,ESP
-슬로베니아,Slovenia,SI,EU,Europe,유럽,1,전 지역,
-시리아,Syria,SY,ME,Middle East,중동,4,3단계를 제외한 전 지역,
-시리아,Syria,SY,ME,Middle East,중동,3,골란고원 일부(레바논 접경 및 UNDOF 분리선 4km 이내 지역 제외),
-시에라리온,Sierra Leone,SL,AF,Africa,아프리카,2,전 지역,
+슬로베니아,Slovenia,SI,EU,Europe,유럽,1,전 지역,SVN
+시리아,Syria,SY,ME,Middle East,중동,4,3단계를 제외한 전 지역,SYR
+시리아,Syria,SY,ME,Middle East,중동,3,골란고원 일부(레바논 접경 및 UNDOF 분리선 4km 이내 지역 제외),SYR
+시에라리온,Sierra Leone,SL,AF,Africa,아프리카,2,전 지역,SLE
 아랍에미리트,United Arab Emirates : UAE,AE,ME,Middle East,중동,3,전 지역,ARE
-아르메니아,Armenia,AM,EU,Europe,유럽,4,아제르바이잔 접경 5km 구간,
-아르메니아,Armenia,AM,EU,Europe,유럽,2,"아라라트주, 게가쿠니크주, 바요츠조르주, 슈니크주, 타부시주",
-아르메니아,Armenia,AM,EU,Europe,유럽,1,"2, 4단계 지정 지역을 제외한 지역",
+아르메니아,Armenia,AM,EU,Europe,유럽,4,아제르바이잔 접경 5km 구간,ARM
+아르메니아,Armenia,AM,EU,Europe,유럽,2,"아라라트주, 게가쿠니크주, 바요츠조르주, 슈니크주, 타부시주",ARM
+아르메니아,Armenia,AM,EU,Europe,유럽,1,"2, 4단계 지정 지역을 제외한 지역",ARM
 아르헨티나,Argentina,AR,LA,Latin America,중남미,2,전 지역,ARG
 아이슬란드,Iceland,IS,EU,Europe,유럽,1,전 지역,ISL
-아이티,Haiti,HT,LA,Latin America,중남미,4,전 지역,
-아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,4,아르메니아 접경 5km 구간,
-아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,3,"아르메니아와 인접한 아제르바이잔 서남부 지역(아그담(Aghdam), 피줄리(Fizuli), 자브라일(Jabrayil), 장길란(Zanglian), 구바들리(Guabadly), 라친(Lachin), 켈바자르(Kelbajar)), 나흐치반 아르메니아 접경지역",
-아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,1,"3, 4, 특별여행주의보 단계 지정 지역을 제외한 지역",
-아프가니스탄,Afghanistan,AF,WA,Western South Asia,서남아시아,4,전 지역,
-알바니아,Albania,AL,EU,Europe,유럽,1,전 지역,
-알제리,Algeria,DZ,ME,Middle East,중동,3,"국경지역(튀니지(테베사, 엘웨드 동부, 오아글라 동부), 리비아(일리지 동부), 니제르ㆍ말리ㆍ모리타니(타만라셋 남부, 아드라르 남서부, 틴두프 남서부))",
-알제리,Algeria,DZ,ME,Middle East,중동,2,"카빌리 지역 6개주 산악지역(부메르데스, 부아라, 티지 우주, 베자이아, 보르즈부아레리즈, 지젤) 포함 3단계 지정 지역을 제외한 지역",
-알제리,Algeria,DZ,ME,Middle East,중동,1,알제주,
-앙골라,Angola,AO,AF,Africa,아프리카,2,전 지역,
-에리트레아,Eritrea,ER,AF,Africa,아프리카,3,에티오피아 수단 지부티 국경 25Km 이내,
-에리트레아,Eritrea,ER,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-에스와티니,Eswatini,SZ,AF,Africa,아프리카,1,전 지역,
+아이티,Haiti,HT,LA,Latin America,중남미,4,전 지역,HTI
+아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,4,아르메니아 접경 5km 구간,AZE
+아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,3,"아르메니아와 인접한 아제르바이잔 서남부 지역(아그담(Aghdam), 피줄리(Fizuli), 자브라일(Jabrayil), 장길란(Zanglian), 구바들리(Guabadly), 라친(Lachin), 켈바자르(Kelbajar)), 나흐치반 아르메니아 접경지역",AZE
+아제르바이잔,Azerbaijan,AZ,EU,Europe,유럽,1,"3, 4, 특별여행주의보 단계 지정 지역을 제외한 지역",AZE
+아프가니스탄,Afghanistan,AF,WA,Western South Asia,서남아시아,4,전 지역,AFG
+알바니아,Albania,AL,EU,Europe,유럽,1,전 지역,ALB
+알제리,Algeria,DZ,ME,Middle East,중동,3,"국경지역(튀니지(테베사, 엘웨드 동부, 오아글라 동부), 리비아(일리지 동부), 니제르ㆍ말리ㆍ모리타니(타만라셋 남부, 아드라르 남서부, 틴두프 남서부))",DZA
+알제리,Algeria,DZ,ME,Middle East,중동,2,"카빌리 지역 6개주 산악지역(부메르데스, 부아라, 티지 우주, 베자이아, 보르즈부아레리즈, 지젤) 포함 3단계 지정 지역을 제외한 지역",DZA
+알제리,Algeria,DZ,ME,Middle East,중동,1,알제주,DZA
+앙골라,Angola,AO,AF,Africa,아프리카,2,전 지역,AGO
+에리트레아,Eritrea,ER,AF,Africa,아프리카,3,에티오피아 수단 지부티 국경 25Km 이내,ERI
+에리트레아,Eritrea,ER,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,ERI
+에스와티니,Eswatini,SZ,AF,Africa,아프리카,1,전 지역,SWZ
 에콰도르,Ecuador,EC,LA,Latin America,중남미,3,"과야스 주, 아수아이 주, 로스리오스 주, 산타엘레나 주, 엘오로 주, 마니비 주, 에스메랄다 주",ECU
 에콰도르,Ecuador,EC,LA,Latin America,중남미,2,출국권고를 제외한 전 지역,ECU
-에티오피아,Ethiopia,ET,AF,Africa,아프리카,3,"암하라 주, 티그라이 주, 소말리 주, 베니샹굴-구무즈 주, 감벨라 주, 오로미아 주 일부(East Welega, West Welega, Kelam Welega, Guji, Borena 지역), 수단 및 에리트리아 국경 10km 접경지역, 아파르주에서 티그라이주 10km 접경지역, △케냐 및 남수단 국경 10km 접경 지역",
+에티오피아,Ethiopia,ET,AF,Africa,아프리카,3,"암하라 주, 티그라이 주, 소말리 주, 베니샹굴-구무즈 주, 감벨라 주, 오로미아 주 일부(East Welega, West Welega, Kelam Welega, Guji, Borena 지역), 수단 및 에리트리아 국경 10km 접경지역, 아파르주에서 티그라이주 10km 접경지역, △케냐 및 남수단 국경 10km 접경 지역",ETH
 영국,United Kingdom,GB,EU,Europe,유럽,1,전 지역,GBR
-예멘,Yemen,YE,ME,Middle East,중동,4,전 지역,
-오만,Oman,OM,ME,Middle East,중동,3,전 지역,
+예멘,Yemen,YE,ME,Middle East,중동,4,전 지역,YEM
+오만,Oman,OM,ME,Middle East,중동,3,전 지역,OMN
 오스트리아,Austria,AT,EU,Europe,유럽,1,전 지역,AUT
-온두라스,Honduras,HN,LA,Latin America,중남미,2,전 지역,
-요르단,Jordan,JO,ME,Middle East,중동,3,자르카 시 동편 경계선의 동부 지역,
-우크라이나,Ukraine,UA,EU,Europe,유럽,4,전 지역,
-이라크,Iraq,IQ,ME,Middle East,중동,4,전 지역,
-이란,Iran,IR,ME,Middle East,중동,4,전 지역,
+온두라스,Honduras,HN,LA,Latin America,중남미,2,전 지역,HND
+요르단,Jordan,JO,ME,Middle East,중동,3,자르카 시 동편 경계선의 동부 지역,JOR
+우크라이나,Ukraine,UA,EU,Europe,유럽,4,전 지역,UKR
+이라크,Iraq,IQ,ME,Middle East,중동,4,전 지역,IRQ
+이란,Iran,IR,ME,Middle East,중동,4,전 지역,IRN
 이스라엘,Israel,IL,ME,Middle East,중동,4,"이스라엘 북부 레바논 접경지역(국경으로부터 4km), 가자지구",ISR
 이스라엘,Israel,IL,ME,Middle East,중동,3,4단계 지정 지역을 제외한 지역,ISR
-이집트,Egypt,EG,ME,Middle East,중동,3,"중•북부 시나이 반도(1,2단계 지역 제외), 리비아 국경으로부터 30km까지",
-이집트,Egypt,EG,ME,Middle East,중동,2,"서부사막, 시나이반도 남부 일부지역(성캐더린•타바)",
-이집트,Egypt,EG,ME,Middle East,중동,1,"다합•샴엘셰이크지역, 카이로 등 나일강 유역 도시지역, 마르트루~지중해 유역",
+이집트,Egypt,EG,ME,Middle East,중동,3,"중•북부 시나이 반도(1,2단계 지역 제외), 리비아 국경으로부터 30km까지",EGY
+이집트,Egypt,EG,ME,Middle East,중동,2,"서부사막, 시나이반도 남부 일부지역(성캐더린•타바)",EGY
+이집트,Egypt,EG,ME,Middle East,중동,1,"다합•샴엘셰이크지역, 카이로 등 나일강 유역 도시지역, 마르트루~지중해 유역",EGY
 이탈리아,Italia,IT,EU,Europe,유럽,1,전 지역,ITA
 인도,India,IN,WA,Western South Asia,서남아시아,3,"카슈미르, 카르길 시",IND
 인도,India,IN,WA,Western South Asia,서남아시아,1,3단계 지정 지역을 제외한 지역,IND
 인도네시아,Indonesia,ID,SE,Southeast Asia,동남아시아,2,"서파루아, 파푸아, 말루쿠, 아체",IDN
 인도네시아,Indonesia,ID,SE,Southeast Asia,동남아시아,1,2단계 지정 지역을 제외한 지역,IDN
 일본,Japan,JP,NE,Northeast Asia,동북아시아,3,후쿠시마 원전 반경 30km 이내 및 일본 정부 지정 피난지시구역,JPN
-자메이카,Jamaica,JM,LA,Latin America,중남미,3,"킹스턴, 세인트앤드류, 세인트캐서린",
-자메이카,Jamaica,JM,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,
-잠비아,Zambia,ZM,AF,Africa,아프리카,1,전 지역,
-적도기니,Equatorial Guinea,GQ,AF,Africa,아프리카,2,전 지역,
-조지아,Georgia,GE,EU,Europe,유럽,3,"남 오세티아, 압하지아",
-조지아,Georgia,GE,EU,Europe,유럽,2,3단계 지정 지역을 제외한 지역,
+자메이카,Jamaica,JM,LA,Latin America,중남미,3,"킹스턴, 세인트앤드류, 세인트캐서린",JAM
+자메이카,Jamaica,JM,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,JAM
+잠비아,Zambia,ZM,AF,Africa,아프리카,1,전 지역,ZMB
+적도기니,Equatorial Guinea,GQ,AF,Africa,아프리카,2,전 지역,GNQ
+조지아,Georgia,GE,EU,Europe,유럽,3,"남 오세티아, 압하지아",GEO
+조지아,Georgia,GE,EU,Europe,유럽,2,3단계 지정 지역을 제외한 지역,GEO
 중국,China,CN,NE,Northeast Asia,동북아시아,1,특별여행주의보 지정 지역을 제외한 지역,CHN
-중앙아프리카,Central African Republic,CF,AF,Africa,아프리카,3,전 지역,
-지부티,Djibouti,DJ,AF,Africa,아프리카,3,에리트레아•에티오피아•소말리아 국경 10km 이내 접경지역,
-지부티,Djibouti,DJ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-짐바브웨,Zimbabwe,ZW,AF,Africa,아프리카,1,전 지역,
-차드,Chad,TD,AF,Africa,아프리카,3,전 지역,
+중앙아프리카,Central African Republic,CF,AF,Africa,아프리카,3,전 지역,CAF
+지부티,Djibouti,DJ,AF,Africa,아프리카,3,에리트레아•에티오피아•소말리아 국경 10km 이내 접경지역,DJI
+지부티,Djibouti,DJ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,DJI
+짐바브웨,Zimbabwe,ZW,AF,Africa,아프리카,1,전 지역,ZWE
+차드,Chad,TD,AF,Africa,아프리카,3,전 지역,TCD
 칠레,Chile,CL,LA,Latin America,중남미,2,"발파라이소주(이스터섬 제외), 산티아고 수도주, 비오비오주",CHL
 칠레,Chile,CL,LA,Latin America,중남미,1,2단계 지정 지역을 제외한 지역,CHL
-카메룬,Cameroon,CM,AF,Africa,아프리카,3,"노르드 주, 아다모와 주, 북서부 주, 남서부 주, 최북부 주",
-카메룬,Cameroon,CM,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-카타르,Qatar,QA,ME,Middle East,중동,3,전 지역,
-캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,3,"캄보디아-태국 국경 50km 이내,시하누크빌 시 ,캄폿 주 보코산 지역, 바벳 시, 포이펫 시,",
-캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,2,시하누크빌 주,
-캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,1,2․3 단계 발령 지역 외 전 지역,
-케냐,Kenya,KE,AF,Africa,아프리카,3,"만데라주, 와지르주, 가리사주, 라무주 전체, 타나강주 및 킬리피주 일부지역, 나이로비 북부 이스트레이 지역, 에티오피아 및 남수단 접경 25km 지역",
-케냐,Kenya,KE,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
-코모로,Comoros,KM,AF,Africa,아프리카,2,전 지역,
+카메룬,Cameroon,CM,AF,Africa,아프리카,3,"노르드 주, 아다모와 주, 북서부 주, 남서부 주, 최북부 주",CMR
+카메룬,Cameroon,CM,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,CMR
+카타르,Qatar,QA,ME,Middle East,중동,3,전 지역,QAT
+캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,3,"캄보디아-태국 국경 50km 이내,시하누크빌 시 ,캄폿 주 보코산 지역, 바벳 시, 포이펫 시,",KHM
+캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,2,시하누크빌 주,KHM
+캄보디아,Cambodia,KH,SE,Southeast Asia,동남아시아,1,2․3 단계 발령 지역 외 전 지역,KHM
+케냐,Kenya,KE,AF,Africa,아프리카,3,"만데라주, 와지르주, 가리사주, 라무주 전체, 타나강주 및 킬리피주 일부지역, 나이로비 북부 이스트레이 지역, 에티오피아 및 남수단 접경 25km 지역",KEN
+케냐,Kenya,KE,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,KEN
+코모로,Comoros,KM,AF,Africa,아프리카,2,전 지역,COM
 코소보,Kosovo,XK,EU,Europe,유럽,3,"미트로비차 북부(Zubin Potok, Zveçan, Leposaviq)",
 코소보,Kosovo,XK,EU,Europe,유럽,2,3단계 지정 지역을 제외한 지역,
-코스타리카,Costa Rica,CR,LA,Latin America,중남미,2,전 지역,
-코트디부아르,Côte D'Ivoire,CI,AF,Africa,아프리카,3,"라이베리아ㆍ기니와 국경을 접한 서부 지역(뎅겔레 주, 몽타뉴 주, 바핑 주), 초로고(Tchologo), 붕카니(Bounkani) 지역",
-코트디부아르,Côte D'Ivoire,CI,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
+코스타리카,Costa Rica,CR,LA,Latin America,중남미,2,전 지역,CRI
+코트디부아르,Côte D'Ivoire,CI,AF,Africa,아프리카,3,"라이베리아ㆍ기니와 국경을 접한 서부 지역(뎅겔레 주, 몽타뉴 주, 바핑 주), 초로고(Tchologo), 붕카니(Bounkani) 지역",CIV
+코트디부아르,Côte D'Ivoire,CI,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,CIV
 콜롬비아,Colombia,CO,LA,Latin America,중남미,3,"베네수엘라 국경지역 20km/ 나리뇨 주(뚜마코)/ 바예델카우카 주(깔리 시 제외)/ 아라우카 주, 카우카 주/(*는 일부: 안티오키아 주*, 초코 주*/ 카케타 주*) / 노르떼 데 산딴데르(Norte de Santander) 주",COL
 콜롬비아,Colombia,CO,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,COL
-콩고,Congo,CG,AF,Africa,아프리카,2,전 지역,
-콩고민주공화국,Democratic Republic of Congo,CD,AF,Africa,아프리카,4,"북키부주, 남키부주,이투리주",
-콩고민주공화국,Democratic Republic of Congo,CD,AF,Africa,아프리카,3,"중앙아프리카공화국과의 국경 50km 이내 지역/ 바우엘레주, 오트우엘레주, 마니에마주, 카사이주, 카사이상트랄주, 카사이오리앙탈주,탕가니카주,오트로마미주",
-쿠웨이트,Kuwait,KW,ME,Middle East,중동,3,전지역,
-키리바시,Kiribati,KI,OC,Oceania,오세아니아,1,전 지역,
-타지키스탄,Tajikistan,TJ,RU,Russia,러시아·중앙아시아,3,아프가니스탄 접경지역,
-타지키스탄,Tajikistan,TJ,RU,Russia,러시아·중앙아시아,1,3단계 지정 지역을 제외한 지역,
-탄자니아,Tanzania,TZ,AF,Africa,아프리카,3,음트와라(Mtwara) 주,
-탄자니아,Tanzania,TZ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,
+콩고,Congo,CG,AF,Africa,아프리카,2,전 지역,COG
+콩고민주공화국,Democratic Republic of Congo,CD,AF,Africa,아프리카,4,"북키부주, 남키부주,이투리주",COD
+콩고민주공화국,Democratic Republic of Congo,CD,AF,Africa,아프리카,3,"중앙아프리카공화국과의 국경 50km 이내 지역/ 바우엘레주, 오트우엘레주, 마니에마주, 카사이주, 카사이상트랄주, 카사이오리앙탈주,탕가니카주,오트로마미주",COD
+쿠웨이트,Kuwait,KW,ME,Middle East,중동,3,전지역,KWT
+키리바시,Kiribati,KI,OC,Oceania,오세아니아,1,전 지역,KIR
+타지키스탄,Tajikistan,TJ,RU,Russia,러시아·중앙아시아,3,아프가니스탄 접경지역,TJK
+타지키스탄,Tajikistan,TJ,RU,Russia,러시아·중앙아시아,1,3단계 지정 지역을 제외한 지역,TJK
+탄자니아,Tanzania,TZ,AF,Africa,아프리카,3,음트와라(Mtwara) 주,TZA
+탄자니아,Tanzania,TZ,AF,Africa,아프리카,2,3단계 지정 지역을 제외한 지역,TZA
 태국,Thailand,TH,SE,Southeast Asia,동남아시아,3,"송클라 주 남부 말레이시아 접경지역, 파타니 주, 나라티왓 주, 얄라 주, 태국-캄보디아 국경 50km 이내",THA
 태국,Thailand,TH,SE,Southeast Asia,동남아시아,2,딱 주,THA
 태국,Thailand,TH,SE,Southeast Asia,동남아시아,1,2.3단계 및 특별여행주의보 발령 지역을 제외한 지역,THA
-토고,Togo,TG,AF,Africa,아프리카,2,전 지역,
-투르크메니스탄,Turkmenistan,TM,RU,Russia,러시아·중앙아시아,1,전 지역,
-튀니지,Tunisia,TN,ME,Middle East,중동,2,"1, 3단계 지정 지역을 제외한 지역",
-튀니지,Tunisia,TN,ME,Middle East,중동,1,튀니스와 수도권 지역/비제르트 주/나불 주/수스 주/모나스티르 주 마흐디아 주/스팍스 주/제르바 주,
-튀니지,Tunisia,TN,ME,Middle East,중동,3,"알제리 접경지역(까세린주 샴비산 일대 포함), 리비아 접경지역 및 크사르 길랜 이남 사막지역 전역",
-튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,3,"빙괼, 바트만, 시이르트, 시르나크, 하카리, 시리아의 국경 10km 이내 지역",
-튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,2,"마르딘, 샨르우르파, 비틀리스, 반, 엘라지즈, 툰젤리, 디야르바키르",
-튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,1,"2,3단계 및 특별여행주의보 지정 지역을 제외한 지역",
-트리니다드토바고,Trinidad & Tobago,TT,LA,Latin America,중남미,2,전 지역,
-파나마,Panama,PA,LA,Latin America,중남미,3,콜롬비아 국경지역 40Km 지역,
-파나마,Panama,PA,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,
-파라과이,Paraguay,PY,LA,Latin America,중남미,2,전 지역,
-파키스탄,Pakistan,PK,WA,Western South Asia,서남아시아,3,2단계 지정 지역을 제외한 지역,
-파키스탄,Pakistan,PK,WA,Western South Asia,서남아시아,2,"이슬라마바드, 페이살라바드, 라왈핀디, 라호르, 훈자, 길깃, 스카루드",
-파푸아뉴기니,Papua New Guinea : PNG,PG,OC,Oceania,오세아니아,3,"서던 하일랜즈 주, 헬라 주",
-파푸아뉴기니,Papua New Guinea : PNG,PG,OC,Oceania,오세아니아,2,3단계 지정 지역을 제외한 지역,
+토고,Togo,TG,AF,Africa,아프리카,2,전 지역,TGO
+투르크메니스탄,Turkmenistan,TM,RU,Russia,러시아·중앙아시아,1,전 지역,TKM
+튀니지,Tunisia,TN,ME,Middle East,중동,2,"1, 3단계 지정 지역을 제외한 지역",TUN
+튀니지,Tunisia,TN,ME,Middle East,중동,1,튀니스와 수도권 지역/비제르트 주/나불 주/수스 주/모나스티르 주 마흐디아 주/스팍스 주/제르바 주,TUN
+튀니지,Tunisia,TN,ME,Middle East,중동,3,"알제리 접경지역(까세린주 샴비산 일대 포함), 리비아 접경지역 및 크사르 길랜 이남 사막지역 전역",TUN
+튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,3,"빙괼, 바트만, 시이르트, 시르나크, 하카리, 시리아의 국경 10km 이내 지역",TUR
+튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,2,"마르딘, 샨르우르파, 비틀리스, 반, 엘라지즈, 툰젤리, 디야르바키르",TUR
+튀르키예공화국,Republic of Turkiye,TR,EU,Europe,유럽,1,"2,3단계 및 특별여행주의보 지정 지역을 제외한 지역",TUR
+트리니다드토바고,Trinidad & Tobago,TT,LA,Latin America,중남미,2,전 지역,TTO
+파나마,Panama,PA,LA,Latin America,중남미,3,콜롬비아 국경지역 40Km 지역,PAN
+파나마,Panama,PA,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,PAN
+파라과이,Paraguay,PY,LA,Latin America,중남미,2,전 지역,PRY
+파키스탄,Pakistan,PK,WA,Western South Asia,서남아시아,3,2단계 지정 지역을 제외한 지역,PAK
+파키스탄,Pakistan,PK,WA,Western South Asia,서남아시아,2,"이슬라마바드, 페이살라바드, 라왈핀디, 라호르, 훈자, 길깃, 스카루드",PAK
+파푸아뉴기니,Papua New Guinea : PNG,PG,OC,Oceania,오세아니아,3,"서던 하일랜즈 주, 헬라 주",PNG
+파푸아뉴기니,Papua New Guinea : PNG,PG,OC,Oceania,오세아니아,2,3단계 지정 지역을 제외한 지역,PNG
 페루,Peru,PE,LA,Latin America,중남미,3,"아야쿠초 주 : 라 마르, 우안타 지역/ 우앙카벨리카 주 : 츄르캄파, 타야카하 지역/ 쿠스코 주 : 라 콘벤시온 지역/ 후닌 주 : 사티포, 우안카요, 콘셉시온 지역",PER
 페루,Peru,PE,LA,Latin America,중남미,2,3단계 지정 지역을 제외한 지역,PER
 폴란드,Poland,PL,EU,Europe,유럽,2,우크라이나 접경 30KM지역,POL
 폴란드,Poland,PL,EU,Europe,유럽,1,2단계 지정 지역을 제외한 지역,POL
 프랑스,France,FR,EU,Europe,유럽,1,전 지역,FRA
-피지,Fiji,FJ,OC,Oceania,오세아니아,1,전 지역,
-필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,4,"민다나오의 잠보앙가, 술루‧바실란 타위타위 군도",
-필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,3,"팔라완섬 2단계 지역(아볼란, 나라, 케손) 이남, 민다나오섬 일부(2단계 및 4단계 지역 제외)",
-필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,2,"1, 3, 4단계 지역을 제외한 지역 , 시아르가오주 및 다바오 카가얀데오로시, 라귄딩안 공항 및 N9 도로 일부",
-필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,1,"수빅시, 보라카이섬, 보홀섬, 세부막탄섬(라푸라푸시)",
-홍콩,Hongkong,HK,NE,Northeast Asia,동북아시아,1,전 지역,
+피지,Fiji,FJ,OC,Oceania,오세아니아,1,전 지역,FJI
+필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,4,"민다나오의 잠보앙가, 술루‧바실란 타위타위 군도",PHL
+필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,3,"팔라완섬 2단계 지역(아볼란, 나라, 케손) 이남, 민다나오섬 일부(2단계 및 4단계 지역 제외)",PHL
+필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,2,"1, 3, 4단계 지역을 제외한 지역 , 시아르가오주 및 다바오 카가얀데오로시, 라귄딩안 공항 및 N9 도로 일부",PHL
+필리핀,Philippines,PH,SE,Southeast Asia,동남아시아,1,"수빅시, 보라카이섬, 보홀섬, 세부막탄섬(라푸라푸시)",PHL
+홍콩,Hongkong,HK,NE,Northeast Asia,동북아시아,1,전 지역,HKG
