@@ -1,7 +1,7 @@
 import pandas as pd
 import html
 import json
-import os
+import pycountry
 
 sft = pd.read_json('./data/raw/safety_info.json')
 master = pd.read_csv('./data/country_master.csv', encoding='utf-8-sig')
@@ -29,6 +29,16 @@ sft = sft.merge(
     how='left'
             )
 sft = sft.drop(columns=['country_kr'])
+
+def name_to_iso3(name):
+    try:
+        return pycountry.countries.lookup(str(name).strip()).alpha_3
+    except LookupError:
+        return None
+
+sft['iso3'] = sft['iso3'].fillna(sft['영문국가명'].apply(name_to_iso3))
+
+print('아직 없는 국가:', sft[sft['iso3'].isna()]['국가명'].unique())
 
 
 print(sft.shape)

@@ -1,5 +1,6 @@
 import pandas as pd
 import html
+import pycountry
 
 alm = pd.read_json('./data/raw/alarm.json')
 master = pd.read_csv('./data/country_master.csv', encoding='utf-8-sig')
@@ -24,6 +25,13 @@ alm = alm.merge(
 )
 alm = alm.drop(columns=['country_kr'])
 
+def to_iso3(iso2):
+    c = pycountry.countries.get(alpha_2=str(iso2).strip().upper())
+    return c.alpha_3 if c else None
+
+alm['iso3'] = alm['iso3'].fillna(alm['ISO 코드'].apply(to_iso3))
+
+print('아직 없는 국가:', alm[alm['iso3'].isna()]['국가명'].unique())
 
 print(alm.shape)
 print('전체 국가 수:', alm['국가명'].nunique())
