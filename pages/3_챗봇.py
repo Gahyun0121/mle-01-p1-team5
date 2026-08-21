@@ -16,11 +16,13 @@ st.set_page_config(page_title="안전정보 챗봇", page_icon="💬", layout="c
 
 st.markdown("""
 <style>
-[data-testid="stChatMessage"] {
-    background: transparent;
-    padding: 2px 0;
-}
+.block-container { max-width: 58rem; }
+[data-testid="stBottomBlockContainer"] { max-width: 58rem; }
+
+[data-testid="stChatMessage"] { background: transparent; padding: 2px 0; }
 [data-testid="stChatMessage"] [data-testid="stChatMessageAvatar"] { display: none; }
+
+.page-title { font-size: 20px; font-weight: 600; color: #2c3742; margin-bottom: 14px; }
 
 .bubble-user {
     background: #dbeafe;
@@ -58,16 +60,14 @@ st.markdown("""
     color: #55636f;
     font-size: 13px;
     padding: 4px 14px;
+    width: 100%;
 }
-.stButton button:hover {
-    border-color: #9cc3e0;
-    color: #2d6a9f;
-}
+.stButton button:hover { border-color: #9cc3e0; color: #2d6a9f; }
 hr { margin: 10px 0 18px 0; }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("#### 안전정보 챗봇")
+st.markdown('<div class="page-title">안전정보 챗봇</div>', unsafe_allow_html=True)
 
 
 @st.cache_data
@@ -130,7 +130,7 @@ if question:
 
     with st.spinner(""):
         docs = search_documents(f"{country} {question}")
-        answer = generate_answer(question, docs)
+        answer = generate_answer(question, docs, country)
 
     st.markdown(f'<div class="bubble-bot">{answer}</div>', unsafe_allow_html=True)
     if docs and "자료가 없습니다" not in answer:
