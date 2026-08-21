@@ -79,6 +79,9 @@ def remove_country_from_query(query, country):
 
 
 
+
+
+
 # 5. 관련 문서 검색
 
 def search_documents(query, k=5, threshold=0.25):
@@ -90,8 +93,13 @@ def search_documents(query, k=5, threshold=0.25):
         results = vector_db.similarity_search_with_relevance_scores(
             search_query,
             k=k,
-            filter={"국가명": country},
-        )
+            filter={
+                    "$or": [
+                        {"국가명": country},
+                        {"국가명": "ALL"},
+                    ]
+                },
+            )
     else:
         results = vector_db.similarity_search_with_relevance_scores(
             query,
@@ -116,8 +124,11 @@ def search_documents(query, k=5, threshold=0.25):
         formatted_results.append({
             "content": doc.page_content,
             "title": title,
+            "country": doc.metadata.get("국가명", ""),
             "date": doc.metadata.get("작성일", ""),
             "iso": doc.metadata.get("ISO코드", ""),
+            "source": doc.metadata.get("source", ""),
+            "chunk_id": doc.metadata.get("chunk_id", ""),
             "score": round(score, 3),
         })
 

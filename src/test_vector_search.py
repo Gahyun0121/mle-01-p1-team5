@@ -19,6 +19,17 @@ vector_db = Chroma(
 # 저장된 데이터 개수 확인
 print("Vector DB 저장 개수:", vector_db._collection.count())
 
+# 저장된 데이터 샘플 확인
+sample = vector_db._collection.peek(limit=3)
+
+for metadata in sample["metadatas"]:
+    print(metadata)
+
+print("Chroma IDs:", sample["ids"])
+print("Metadata:", sample["metadatas"])
+
+
+
 # query = "가나에서 택시 이용할 때 주의할 점은?"
 
 # results = vector_db.similarity_search(
@@ -35,19 +46,19 @@ print("Vector DB 저장 개수:", vector_db._collection.count())
 #     print(doc.page_content[:500])
 
 
-query = "택시 이용할 때 주의할 점은?"
+# query = "택시 이용할 때 주의할 점은?"
 
-results = vector_db.similarity_search(
-    query,
-    k=5,
-    filter={"국가명": "가나"},
-)
+# results = vector_db.similarity_search(
+#     query,
+#     k=5,
+#     filter={"국가명": "가나"},
+# )
 
-for i, doc in enumerate(results, start=1):
-    print(f"\n=== 검색 결과 {i} ===")
-    print("metadata:", doc.metadata)
-    print("내용:")
-    print(doc.page_content[:700])
+# for i, doc in enumerate(results, start=1):
+#     print(f"\n=== 검색 결과 {i} ===")
+#     print("metadata:", doc.metadata)
+#     print("내용:")
+#     print(doc.page_content[:700])
 
 
 
