@@ -45,7 +45,6 @@ notice = notice.fillna({
     "ISO코드": "",
     "대륙명": "",
     "공지제목": "",
-    "공지내용_첨부링크": "",
     "공지유형": "",
 })
 
@@ -76,7 +75,6 @@ for _, row in notice.iterrows():
             "대륙명": row["대륙명"],
             "작성일": row["안전공지_작성일"],
             "공지유형": row["공지유형"],
-            "첨부링크": row["공지내용_첨부링크"],
             "source": "safety_notice",
         },
     )
@@ -95,36 +93,74 @@ all_docs = incident_docs + notice_docs
 print("\n전체 Document 개수:", len(all_docs))
 
 
+
+
+
 # 긴 Document를 작은 chunk로 분할
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
     chunk_overlap=150,
 )
 
+
 chunks = text_splitter.split_documents(all_docs)
 
-print("분할 후 Chunk 개수:", len(chunks))
 
 
 
 
+# source별 chunk_id 생성
+source_counts = {
+    "incident": 0,
+    "safety_notice": 0,
+}
+
+for chunk in chunks:
+    source = chunk.metadata["source"]
+
+    if source == "incident":
+        chunk.metadata["chunk_id"] = f"i_{source_counts[source]:05d}"
+
+    elif source == "safety_notice":
+        chunk.metadata["chunk_id"] = f"sn_{source_counts[source]:05d}"
+
+    source_counts[source] += 1
+
+
+
+
+
+
+# chunk_id 중복 확인
+assert len(chunks) == len(set(chunk.metadata["chunk_id"] for chunk in chunks))
+
+from tqdm import tqdm
 
 # 임베딩 모델 로드
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-m3",
 )
 
-
-
-
-
-# Vector DB 생성 및 저장
-vector_db = Chroma.from_documents(
-    documents=chunks,
-    embedding=embeddings,
-    persist_directory="data/vector_db",
+# Vector DB 생성
+vector_db = Chroma(
     collection_name="travel_safety",
+    embedding_function=embeddings,
+    persist_directory="data/vector_db",
 )
+
+batch_size = 100
+
+for i in tqdm(
+    range(0, len(chunks), batch_size),
+    desc="Embedding & Saving",
+):
+    batch = chunks[i:i + batch_size]
+
+    vector_db.add_documents(
+        documents=batch,
+        ids=[chunk.metadata["chunk_id"] for chunk in batch],
+    )
 
 print("\nVector DB 저장 완료")
 print("저장 위치: data/vector_db")
+print("저장된 Chunk 개수:", len(chunks))
