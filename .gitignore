@@ -22,3 +22,6 @@ data/raw/*
 # OS
 .DS_Store
 Thumbs.db
+
+# Chroma Vector DB
+data/vector_db/
