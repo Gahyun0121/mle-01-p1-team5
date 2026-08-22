@@ -87,6 +87,7 @@ def get_news(iso3, n=5):
     hit = hit.drop_duplicates(subset=["공지제목", "안전공지_작성일"], keep="first")
 
     return hit.head(n)[["안전공지_작성일", "공지제목"]]
+
 def get_recommendations(iso3):
     """캐글 추천 정보, 없으면 None 반환"""
     d = de[de["iso3"] == iso3]
@@ -94,8 +95,28 @@ def get_recommendations(iso3):
     if d.empty:
         return None
 
+    도시 = sorted(d["city"].dropna().unique().tolist())
+
+    테마 = sorted(
+        set(
+            d["themes"]
+            .dropna()
+            .str.split("|")
+            .explode()
+        )
+    )
+
+    월 = sorted(
+        set(
+            d["months"]
+            .dropna()
+            .str.split("|")
+            .explode()
+        )
+    )
+
     return {
-        "도시": d["city"].to_list(),
-        "테마": sorted(set(d["themes"].str.split("|").explode())),
-        "월": sorted(set(d["months"].str.split("|").explode()))
+        "도시": 도시,
+        "테마": 테마,
+        "월": 월
     }

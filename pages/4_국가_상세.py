@@ -16,11 +16,56 @@ LEVEL_COLOR = {
     4: ("#FEE2E2", "#B91C1C"),   # 빨강
 }
 
+TAG_CLASS = {
+    # 재산 범죄
+    "소매치기": "tag-property",
+    "강도": "tag-property",
+    "절도": "tag-property",
+    "사기": "tag-property",
+    "분실": "tag-property",
+
+    # 신체·강력 범죄
+    "납치": "tag-violence",
+    "성범죄": "tag-violence",
+    "폭행": "tag-violence",
+    "살인": "tag-violence",
+
+    # 사회적 위험
+    "마약": "tag-social",
+    "테러": "tag-social",
+    "시위": "tag-social",
+
+    # 사고
+    "교통사고": "tag-accident",
+
+    # 재난·보건
+    "자연재해": "tag-disaster",
+    "감염병": "tag-disaster",
+}
+
 st.markdown("""
 <style>
 .card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;
       padding:16px 18px;margin-bottom:14px;}
+.rec-card{
+    background:#FFF;
+    border:1px solid #E2E8F0;
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:14px;
+    height:125px;
+    box-sizing:border-box;
+}
 .card-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:12px;}
+.section-title{
+    font-size:14px;
+    font-weight:600;
+    color:#111827;
+    margin-top:12px;
+    margin-bottom:10px;
+    padding-left:9px;
+    border-left:3px solid #2563EB;
+}
 .m-label{font-size:13px;color:#6B7280;margin-bottom:6px;}
 .m-value{font-size:26px;font-weight:700;line-height:1.2;}
 .badge{display:inline-block;padding:2px 9px;border-radius:6px;
@@ -30,6 +75,40 @@ st.markdown("""
 .tag{display:inline-block;border:1px solid #E5E7EB;border-radius:8px;
      padding:5px 12px;font-size:13px;color:#374151;margin:0 7px 7px 0;
      background:#fff;}
+/* 재산 범죄 - 파랑 */
+.tag-property{
+    background:#EFF6FF;
+    color:#1D4ED8;
+    border-color:#BFDBFE;
+}
+
+/* 신체·강력 범죄 - 빨강 */
+.tag-violence{
+    background:#FEF2F2;
+    color:#B91C1C;
+    border-color:#FECACA;
+}
+
+/* 사회적 위험 - 주황 */
+.tag-social{
+    background:#FFF7ED;
+    color:#C2410C;
+    border-color:#FED7AA;
+}
+
+/* 사고 - 노랑 */
+.tag-accident{
+    background:#FEFCE8;
+    color:#A16207;
+    border-color:#FEF08A;
+}
+
+/* 재난·보건 - 초록 */
+.tag-disaster{
+    background:#F0FDF4;
+    color:#15803D;
+    border-color:#BBF7D0;
+}
 .news{font-size:13px;color:#374151;margin-bottom:7px;}
 .news-date{color:#9CA3AF;margin-right:8px;}
 </style>
@@ -56,53 +135,215 @@ def card(title, body):
 대표, 지역표 = C.get_alarms(iso3)
 태그 = C.get_tags(iso3)
 뉴스 = C.get_news(iso3)
+추천 = C.get_recommendations(iso3)
+
 
 
 # 상단 3칸
 단계 = 요약["경보단계"]
-_, 글자색 = LEVEL_COLOR.get(단계, ("#F3F4F6", "#374151"))
+배경색, 글자색 = LEVEL_COLOR.get(단계, ("#F3F4F6", "#374151"))
 
 c1, c2, c3 = st.columns(3)
 
+# 경보단계
 with c1:
     st.markdown(
-        f'<div class="card"><div class="m-label">경보단계</div>'
-        f'<div class="m-value" style="color:{글자색}">{단계}단계</div></div>',
-        unsafe_allow_html=True)
+        f'''
+        <div class="card" style="
+            background:{배경색};
+            border-color:{글자색}40;
+        ">
+            <div class="m-label">경보단계</div>
+            <div class="m-value" style="color:{글자색}">
+                {단계}단계
+            </div>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
 
+
+# 안전공지
 with c2:
     st.markdown(
-        f'<div class="card"><div class="m-label">안전공지</div>'
-        f'<div class="m-value">{요약["공지수"]}건</div></div>',
-        unsafe_allow_html=True)
+        f'''
+        <div class="card" style="
+            background:#F8FAFC;
+            border-color:#CBD5E1;
+        ">
+            <div class="m-label">안전공지</div>
+            <div class="m-value">
+                {요약["공지수"]}건
+            </div>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
 
+
+# 주요 사건사고
 with c3:
     대표태그 = 태그[0] if 태그 else "자료 없음"
+
     st.markdown(
-        f'<div class="card"><div class="m-label">주요 사건사고</div>'
-        f'<div class="m-value">{대표태그}</div></div>',
-        unsafe_allow_html=True)
+        f'''
+        <div class="card" style="
+            background:#FFF7ED;
+            border-color:#FED7AA;
+        ">
+            <div class="m-label">주요 사건사고</div>
+            <div class="m-value" style="color:#C2410C;">
+                {대표태그}
+            </div>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
 
 
-# 지역별 여행경보
-if 지역표.empty:
-    card("지역별 여행경보", '<div class="alarm-text">외교부 여행경보 미지정 국가</div>')
-else:
-    rows = ""
-    for _, r in 지역표.iterrows():
-        bg, fg = LEVEL_COLOR.get(int(r["경보단계"]), ("#F3F4F6", "#374151"))
-        rows += (f'<div class="alarm-row">'
-                 f'<span class="badge" style="background:{bg};color:{fg}">'
-                 f'{int(r["경보단계"])}단계</span>'
-                 f'<span class="alarm-text">{r["경보내용"]}</span></div>')
-    card("지역별 여행경보", rows)
+# 여행 추천 정보 - 추천 데이터가 있는 국가만 표시
+
+if 추천:
+    st.markdown(
+        '<div class="section-title">여행 추천 정보</div>',
+        unsafe_allow_html=True
+    )
+
+    r1, r2, r3 = st.columns(3)
 
 
-# 사건사고 유형
-if 태그:
-    card("사건사고 유형", "".join(f'<span class="tag">{t}</span>' for t in 태그))
-else:
-    card("사건사고 유형", '<div class="alarm-text">자료 없음</div>')
+    # 추천 도시
+    with r1:
+        도시 = " · ".join(추천["도시"])
+
+        st.markdown(
+            f'''
+            <div class="rec-card">
+                <div class="m-label">추천 도시</div>
+                <div style="font-size:14px;
+                color:#374151;margin-top:10px;">
+                    {도시}
+                </div>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+    # 추천 테마
+    with r2:
+        테마태그 = "".join(
+            f'<span class="tag">#{t}</span>'
+            for t in 추천["테마"]
+        )
+
+        st.markdown(
+            f'''
+            <div class="rec-card">
+                <div class="m-label">추천 테마</div>
+                <div style="margin-top:10px;">
+                    {테마태그}
+                </div>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+    # 추천 시기
+    with r3:
+        MONTH_KR = {
+            "Jan": "1월",
+            "Feb": "2월",
+            "Mar": "3월",
+            "Apr": "4월",
+            "May": "5월",
+            "Jun": "6월",
+            "Jul": "7월",
+            "Aug": "8월",
+            "Sep": "9월",
+            "Oct": "10월",
+            "Nov": "11월",
+            "Dec": "12월",
+        }
+
+        월목록 = [
+            MONTH_KR.get(m, m)
+            for m in 추천["월"]
+        ]
+
+        월목록 = sorted(
+            set(월목록),
+            key=lambda x: int(x.replace("월", ""))
+        )
+
+        월태그 = "".join(
+            f'<span class="tag">{m}</span>'
+            for m in 월목록
+        )
+
+        st.markdown(
+            f'''
+            <div class="rec-card">
+                <div class="m-label">추천 시기</div>
+                <div style="margin-top:10px;">
+                    {월태그}
+                </div>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+
+st.markdown(
+    '<div class="section-title">여행 안전 정보</div>',
+    unsafe_allow_html=True
+)
+
+
+# 지역별 여행경보 + 사건사고 유형
+left_col, right_col = st.columns(2)
+
+# 왼쪽: 지역별 여행경보
+with left_col:
+    if 지역표.empty:
+        card(
+            "지역별 여행경보",
+            '<div class="alarm-text">외교부 여행경보 미지정 국가</div>'
+        )
+    else:
+        rows = ""
+
+        for _, r in 지역표.iterrows():
+            bg, fg = LEVEL_COLOR.get(
+                int(r["경보단계"]),
+                ("#F3F4F6", "#374151")
+            )
+
+            rows += (
+                f'<div class="alarm-row">'
+                f'<span class="badge" style="background:{bg};color:{fg}">'
+                f'{int(r["경보단계"])}단계</span>'
+                f'<span class="alarm-text">{r["경보내용"]}</span>'
+                f'</div>'
+            )
+
+        card("지역별 여행경보", rows)
+
+
+# 오른쪽: 사건사고 유형
+with right_col:
+    if 태그:
+        태그_html = "".join(
+            f'<span class="tag {TAG_CLASS.get(t, "")}">{t}</span>'
+            for t in 태그
+        )
+
+        card("사건사고 유형", 태그_html)
+
+    else:
+        card(
+            "사건사고 유형",
+            '<div class="alarm-text">자료 없음</div>'
+        )
 
 
 # 최신 안전공지
