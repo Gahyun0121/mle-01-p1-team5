@@ -31,3 +31,6 @@ data/vector_db_old/
 check.py
 check_threshold.py
 test_gen.py
+
+# generator test result
+eval_result.md

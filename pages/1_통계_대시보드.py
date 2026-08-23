@@ -8,6 +8,7 @@ from pathlib import Path
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from src.sidebar import render_sidebar
 
 
 # 현재 파일(pages/2_통계_대시보드.py)을 기준으로
@@ -35,6 +36,7 @@ st.markdown(
     여행경보와 안전정보 현황을 한눈에 확인하세요.
     """
 )
+render_sidebar()
 
 # =========================================================
 # 데이터 불러오기
