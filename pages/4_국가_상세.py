@@ -48,13 +48,13 @@ st.markdown("""
 .card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;
       padding:16px 18px;margin-bottom:14px;}
 .rec-card{
-    background:#FFF;
-    border:1px solid #E2E8F0;
+    background:#fff;
+    border:1px solid #E5E7EB;
     border-radius:12px;
     padding:16px 18px;
     margin-bottom:14px;
-    height:125px;
     box-sizing:border-box;
+    overflow:hidden;
 }
 .card-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:12px;}
 .section-title{
@@ -68,13 +68,49 @@ st.markdown("""
 }
 .m-label{font-size:13px;color:#6B7280;margin-bottom:6px;}
 .m-value{font-size:26px;font-weight:700;line-height:1.2;}
-.badge{display:inline-block;padding:2px 9px;border-radius:6px;
-       font-size:12px;font-weight:600;margin-right:10px;}
-.alarm-row{display:flex;align-items:center;margin-bottom:9px;}
-.alarm-text{font-size:13px;color:#374151;}
-.tag{display:inline-block;border:1px solid #E5E7EB;border-radius:8px;
-     padding:5px 12px;font-size:13px;color:#374151;margin:0 7px 7px 0;
-     background:#fff;}
+.alarm-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:8px;
+}
+.alarm-row:last-child{
+    margin-bottom:0;
+}
+.badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:5px 10px;
+    border-radius:7px;
+
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+
+    min-width:48px;
+    flex-shrink:0;
+    box-sizing:border-box;
+}
+
+.alarm-text{
+    font-size:13px;
+    color:#374151;
+    line-height:1.65;
+    word-break:keep-all;
+}
+.tag{
+    display:inline-block;
+    border:1px solid #E5E7EB;
+    border-radius:8px;
+    padding:5px 12px;
+    font-size:13px;
+    color:#374151;
+    margin:0 7px 7px 0;
+    background:#fff;
+}
+
 /* 재산 범죄 - 파랑 */
 .tag-property{
     background:#EFF6FF;
@@ -109,8 +145,33 @@ st.markdown("""
     color:#15803D;
     border-color:#BBF7D0;
 }
+.rec-content{
+    margin-top:12px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    align-content:flex-start;
+    gap:8px;
+}
+.rec-content .tag{
+    margin:0;
+}
+.safety-card{
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    padding:14px 18px 18px 18px;
+    margin-bottom:14px;
+    box-sizing:border-box;
+    overflow:hidden;
+}
 .news{font-size:13px;color:#374151;margin-bottom:7px;}
-.news-date{color:#9CA3AF;margin-right:8px;}
+.news-date {
+    display: inline-block;
+    width: 85px;
+    color: #94a3b8;
+    font-size: 12px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -119,6 +180,17 @@ def card(title, body):
     """제목 + 내용을 흰 박스로 감싸는 함수. 박스가 4개라 함수로 뺌"""
     st.markdown(
         f'<div class="card"><div class="card-title">{title}</div>{body}</div>',
+        unsafe_allow_html=True,
+    )
+
+def safety_card(title, body, height):
+    st.markdown(
+        f'''
+        <div class="safety-card" style="height:{height}px;">
+            <div class="card-title">{title}</div>
+            {body}
+        </div>
+        ''',
         unsafe_allow_html=True,
     )
 
@@ -191,7 +263,7 @@ with c3:
             background:#FFF7ED;
             border-color:#FED7AA;
         ">
-            <div class="m-label">주요 사건사고</div>
+            <div class="m-label">주요 사건사고 유형</div>
             <div class="m-value" style="color:#C2410C;">
                 {대표태그}
             </div>
@@ -204,6 +276,29 @@ with c3:
 # 여행 추천 정보 - 추천 데이터가 있는 국가만 표시
 
 if 추천:
+    # 추천 정보 양에 따라 카드 높이 조절
+    # 추천 정보 카드 높이 계산
+    도시개수 = len(추천["도시"])
+    테마개수 = len(추천["테마"])
+    월개수 = len(추천["월"])
+
+    # 대략적인 줄 수 계산
+    도시줄 = 1 if 도시개수 <= 3 else 2
+
+    테마줄 = 1 if 테마개수 <= 5 else 2
+
+    월줄 = 1 if 월개수 <= 7 else 2
+
+    # 세 카드 중 가장 많은 줄 수 기준
+    최대줄 = max(도시줄, 테마줄, 월줄)
+
+    if 최대줄 == 1:
+        rec_height = 110
+    else:
+        rec_height = 140
+
+# 여행 추천 정보 제목
+
     st.markdown(
         '<div class="section-title">여행 추천 정보</div>',
         unsafe_allow_html=True
@@ -218,10 +313,10 @@ if 추천:
 
         st.markdown(
             f'''
-            <div class="rec-card">
+            <div class="rec-card" style="height:{rec_height}px;">
                 <div class="m-label">추천 도시</div>
-                <div style="font-size:14px;
-                color:#374151;margin-top:10px;">
+                <div class="rec-content"
+                    style="font-size:14px;color:#374151;">
                     {도시}
                 </div>
             </div>
@@ -238,9 +333,9 @@ if 추천:
 
         st.markdown(
             f'''
-            <div class="rec-card">
+            <div class="rec-card" style="height:{rec_height}px;">
                 <div class="m-label">추천 테마</div>
-                <div style="margin-top:10px;">
+                <div class="rec-content">
                     {테마태그}
                 </div>
             </div>
@@ -276,15 +371,15 @@ if 추천:
         )
 
         월태그 = "".join(
-            f'<span class="tag">{m}</span>'
-            for m in 월목록
-        )
+        f'<span class="tag">{m}</span>'
+        for m in 월목록
+    )
 
         st.markdown(
             f'''
-            <div class="rec-card">
+            <div class="rec-card" style="height:{rec_height}px;">
                 <div class="m-label">추천 시기</div>
-                <div style="margin-top:10px;">
+                <div class="rec-content">
                     {월태그}
                 </div>
             </div>
@@ -293,22 +388,60 @@ if 추천:
         )
 
 
+# 여행 안전 정보 제목
+
 st.markdown(
     '<div class="section-title">여행 안전 정보</div>',
     unsafe_allow_html=True
 )
 
 
+# 지역별 여행경보 내용량에 따라 카드 높이 계산
+
+# 지역별 여행경보 예상 줄 수 계산
+import math
+
+예상줄수 = 0
+
+for 내용 in 지역표["경보내용"].fillna("").astype(str):
+    예상줄수 += max(1, math.ceil(len(내용) / 75))
+
+경보개수 = len(지역표)
+
+전체글자수 = (
+    지역표["경보내용"]
+    .fillna("")
+    .astype(str)
+    .str.len()
+    .sum()
+)
+
+safety_height = (
+    55                  # 제목 + 위아래 여백
+    + 예상줄수 * 24      # 실제 텍스트 줄
+    + 경보개수 * 8       # 경보 행 사이 간격
+)
+
+# 내용이 아주 짧으면 카드도 작게
+if 경보개수 == 1 and 전체글자수 <= 30:
+    safety_height = 95
+else:
+    safety_height = max(120, min(safety_height + 20, 230))
+
+
 # 지역별 여행경보 + 사건사고 유형
 left_col, right_col = st.columns(2)
+
 
 # 왼쪽: 지역별 여행경보
 with left_col:
     if 지역표.empty:
-        card(
+        safety_card(
             "지역별 여행경보",
-            '<div class="alarm-text">외교부 여행경보 미지정 국가</div>'
+            '<div class="alarm-text">외교부 여행경보 미지정 국가</div>',
+            safety_height
         )
+
     else:
         rows = ""
 
@@ -326,7 +459,11 @@ with left_col:
                 f'</div>'
             )
 
-        card("지역별 여행경보", rows)
+        safety_card(
+            "지역별 여행경보",
+            rows,
+            safety_height
+        )
 
 
 # 오른쪽: 사건사고 유형
@@ -337,12 +474,17 @@ with right_col:
             for t in 태그
         )
 
-        card("사건사고 유형", 태그_html)
+        safety_card(
+            "사건사고 유형",
+            태그_html,
+            safety_height
+        )
 
     else:
-        card(
+        safety_card(
             "사건사고 유형",
-            '<div class="alarm-text">자료 없음</div>'
+            '<div class="alarm-text">자료 없음</div>',
+            safety_height
         )
 
 
