@@ -1,6 +1,7 @@
 import pandas as pd 
 import sys
 from pathlib import Path
+from src.sidebar import render_sidebar
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
@@ -8,6 +9,7 @@ import streamlit as st
 import src.country_detail as C
 
 st.set_page_config(page_title="국가 상세", layout="wide")
+render_sidebar()
 
 # 경보단계별 (배경색, 글자색)
 LEVEL_COLOR = {
@@ -565,4 +567,4 @@ with right:
     # 오른쪽 컬럼 안에서 다시 나눠, 버튼을 끝쪽 칸에 배치
     _, btn = st.columns([1, 1])
     with btn:
-        st.page_link("pages/3_안전_Q&A.py", label="챗봇에게 물어보기 →")
+        st.page_link("pages/3_안전_QnA.py", label="챗봇에게 물어보기 →")

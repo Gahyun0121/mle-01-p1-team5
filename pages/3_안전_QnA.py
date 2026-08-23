@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from src.sidebar import render_sidebar
 
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -13,6 +14,7 @@ from src.retriever import search_documents
 from src.generator import generate_answer
 
 st.set_page_config(page_title="안전 Q&A", page_icon="💬", layout="centered")
+render_sidebar()
 
 st.markdown("""
 <style>
