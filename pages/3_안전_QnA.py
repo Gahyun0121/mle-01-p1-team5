@@ -12,7 +12,7 @@ load_dotenv()
 from src.retriever import search_documents
 from src.generator import generate_answer
 
-st.set_page_config(page_title="안전정보 챗봇", page_icon="💬", layout="centered")
+st.set_page_config(page_title="안전 Q&A", page_icon="💬", layout="centered")
 
 st.markdown("""
 <style>
@@ -22,7 +22,7 @@ st.markdown("""
 [data-testid="stChatMessage"] { background: transparent; padding: 2px 0; }
 [data-testid="stChatMessage"] [data-testid="stChatMessageAvatar"] { display: none; }
 
-.page-title { font-size: 20px; font-weight: 600; color: #2c3742; margin-bottom: 14px; }
+.page-title { font-size: 44px; font-weight: 600; color: #2c3742; margin-bottom: 14px; }
 
 .bubble-user {
     background: #dbeafe;
@@ -67,7 +67,7 @@ hr { margin: 10px 0 18px 0; }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="page-title">안전정보 챗봇</div>', unsafe_allow_html=True)
+st.markdown('<div class="page-title">🔍 안전 Q&A</div>', unsafe_allow_html=True)
 
 
 @st.cache_data
@@ -95,7 +95,7 @@ def source_line(docs):
 
 
 countries = load_countries()
-st.caption("국가 선택 · 국가 상세에서 넘어오면 자동 선택")
+st.caption("궁금한 국가를 선택하세요.")
 default = st.session_state.get("selected_country")
 idx = countries.index(default) if default in countries else 0
 country = st.selectbox("국가", countries, index=idx, label_visibility="collapsed")
