@@ -25,6 +25,7 @@ Thumbs.db
 
 # Chroma Vector DB
 data/vector_db/
+data/vector_db_old/
 
 # 테스트 코드
 check.py

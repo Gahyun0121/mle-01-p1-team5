@@ -1,3 +1,4 @@
+import pandas as pd 
 import sys
 from pathlib import Path
 
@@ -175,6 +176,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# 페이지 제목 (page_title은 브라우저 탭 이름이라 화면엔 안 나옴)
+st.markdown(
+    '<div style="font-size:44px;font-weight:700;color:#111827;'
+    'margin-bottom:6px;">📋 국가 정보 한눈에 보기</div>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<div style="font-size:14px;color:#6B7280;margin-bottom:10px;">'
+    '국가를 선택하면 여행경보와 사건사고, 안전공지를 확인할 수 있습니다. '
+    '일부 국가는 여행지·시기 추천도 함께 제공합니다.</div>',
+    unsafe_allow_html=True
+)
+
 
 def card(title, body):
     """제목 + 내용을 흰 박스로 감싸는 함수. 박스가 4개라 함수로 뺌"""
@@ -194,6 +208,17 @@ def safety_card(title, body, height):
         unsafe_allow_html=True,
     )
 
+@st.cache_data
+def load_rec_countries():
+    df = pd.read_csv("data/country_master.csv")
+    return sorted(df["country_kr"].dropna().unique())
+
+추천가능국가 = load_rec_countries()
+
+with st.expander("여행지 추천이 가능한 국가 보기"):
+    st.caption(" · ".join(추천가능국가))
+
+st.divider()
 
 # 국가 선택
 목록 = C.get_country_list()
@@ -202,6 +227,8 @@ def safety_card(title, body, height):
     options=목록,
     format_func=lambda x: x[0],
 )
+# 챗봇이 읽어갈 통로에 국가명 저장 (챗봇 selectbox 값과 형식이 같아야 함)
+st.session_state["selected_country"] = 라벨
 
 요약 = C.get_summary(iso3)
 대표, 지역표 = C.get_alarms(iso3)
@@ -500,9 +527,42 @@ else:
 
 
 # 하단 챗봇 링크
+st.markdown("""
+<style>
+/* page_link를 담은 컬럼을 오른쪽 끝으로 밀기 */
+[data-testid="stPageLink"]{
+    display:flex;
+    justify-content:flex-end;
+}
+
+[data-testid="stPageLink"] a{
+    background:#EFF6FF;
+    border:1px solid #BFDBFE;
+    border-radius:8px;
+    padding:8px 16px;
+    justify-content:center;
+    width:auto;              /* 컬럼 폭 전체가 아니라 글자 크기만큼만 */
+}
+[data-testid="stPageLink"] a:hover{
+    background:#DBEAFE;
+}
+[data-testid="stPageLink"] a p{
+    color:#1D4ED8;
+    font-size:14px;
+    font-weight:500;
+}
+[data-testid="stPageLink"] a svg{
+    display:none;
+}
+</style>
+""", unsafe_allow_html=True)
+
 left, right = st.columns([3, 1])
 with left:
-    st.markdown('<div style="padding-top:8px;color:#6B7280;font-size:14px;">'
+    st.markdown('<div style="padding-top:6px;color:#6B7280;font-size:14px;">'
                 '더 궁금한 점이 있나요?</div>', unsafe_allow_html=True)
 with right:
-    st.page_link("pages/3_챗봇.py", label="챗봇에게 물어보기 →")
+    # 오른쪽 컬럼 안에서 다시 나눠, 버튼을 끝쪽 칸에 배치
+    _, btn = st.columns([1, 1])
+    with btn:
+        st.page_link("pages/3_안전_Q&A.py", label="챗봇에게 물어보기 →")
