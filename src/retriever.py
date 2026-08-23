@@ -52,15 +52,16 @@ vector_db = Chroma(
 
 # 4. 질문에서 국가명 찾기
 def extract_country(query):
-    # 1. 국가 별칭 확인
-    for alias, country in country_aliases.items():
-        if alias.lower() in query.lower():
-            return country
 
-    # 2. DB 국가명 확인
-    # 이름이 겹치는 경우를 위해 긴 국가명부터 검사
+    # 1. DB 정식 국가명 확인
+    # 이름이 겹치는 경우 긴 국가명부터 검사
     for country in sorted(country_names, key=len, reverse=True):
         if country in query:
+            return country
+
+    # 2. 국가 별칭 확인
+    for alias, country in country_aliases.items():
+        if alias.lower() in query.lower():
             return country
 
     return None
@@ -69,13 +70,17 @@ def extract_country(query):
 # 별칭 입력시 질문에서 국가명 삭제하기 
 
 def remove_country_from_query(query, country):
+
+    # DB의 정식 국가명을 입력한 경우 먼저 제거
+    if country in query:
+        return query.replace(country, "").strip()
+
     # 별칭으로 입력한 경우
     for alias, standard_country in country_aliases.items():
         if standard_country == country and alias.lower() in query.lower():
             return query.replace(alias, "").strip()
 
-    # DB의 국가명을 그대로 입력한 경우
-    return query.replace(country, "").strip()
+    return query.strip()
 
 
 
@@ -93,12 +98,7 @@ def search_documents(query, k=5, threshold=0.25):
         results = vector_db.similarity_search_with_relevance_scores(
             search_query,
             k=k,
-            filter={
-                    "$or": [
-                        {"국가명": country},
-                        {"국가명": "ALL"},
-                    ]
-                },
+            filter={"국가명": country},
             )
     else:
         results = vector_db.similarity_search_with_relevance_scores(
