@@ -1,12 +1,14 @@
-import pandas as pd 
+import pandas as pd
 import sys
 from pathlib import Path
-from src.sidebar import render_sidebar
 
+# 프로젝트 루트 경로 추가
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import streamlit as st
+from src.sidebar import render_sidebar
 import src.country_detail as C
+
 
 st.set_page_config(page_title="국가 상세", layout="wide")
 render_sidebar()
@@ -57,7 +59,6 @@ st.markdown("""
     padding:16px 18px;
     margin-bottom:14px;
     box-sizing:border-box;
-    overflow:hidden;
 }
 .card-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:12px;}
 .section-title{
@@ -301,33 +302,30 @@ with c3:
         unsafe_allow_html=True
     )
 
+import math
 
 # 여행 추천 정보 - 추천 데이터가 있는 국가만 표시
 
 if 추천:
     # 추천 정보 양에 따라 카드 높이 조절
-    # 추천 정보 카드 높이 계산
-    도시개수 = len(추천["도시"])
-    테마개수 = len(추천["테마"])
+    도시텍스트 = " · ".join(추천["도시"])
+
+    도시줄 = max(1, math.ceil(len(도시텍스트) / 35))
+    테마줄 = max(1, math.ceil(len(추천["테마"]) / 4))
+
     월개수 = len(추천["월"])
 
-    # 대략적인 줄 수 계산
-    도시줄 = 1 if 도시개수 <= 3 else 2
+    if 월개수 <= 5:
+        월줄 = 1
+    else:
+        월줄 = 2
 
-    테마줄 = 1 if 테마개수 <= 5 else 2
-
-    월줄 = 1 if 월개수 <= 7 else 2
-
-    # 세 카드 중 가장 많은 줄 수 기준
     최대줄 = max(도시줄, 테마줄, 월줄)
 
-    if 최대줄 == 1:
-        rec_height = 110
-    else:
-        rec_height = 140
+    rec_height = 85 + (최대줄 * 30)
 
-# 여행 추천 정보 제목
-
+    
+    # 여행 추천 정보 제목
     st.markdown(
         '<div class="section-title">여행 추천 정보</div>',
         unsafe_allow_html=True
@@ -433,7 +431,7 @@ import math
 예상줄수 = 0
 
 for 내용 in 지역표["경보내용"].fillna("").astype(str):
-    예상줄수 += max(1, math.ceil(len(내용) / 75))
+    예상줄수 += max(1, math.ceil(len(내용) / 45))
 
 경보개수 = len(지역표)
 
@@ -455,7 +453,7 @@ safety_height = (
 if 경보개수 == 1 and 전체글자수 <= 30:
     safety_height = 95
 else:
-    safety_height = max(120, min(safety_height + 20, 230))
+    safety_height = max(120, safety_height + 20)
 
 
 # 지역별 여행경보 + 사건사고 유형
