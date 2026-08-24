@@ -31,7 +31,7 @@
 
 ## 4. 시스템 아키텍처
 
-(추후 업로드 예정)
+![detail](docs/architecture.png)
 
 ## 5. 기술 스택
 
