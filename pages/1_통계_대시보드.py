@@ -11,18 +11,14 @@ import streamlit as st
 from src.sidebar import render_sidebar
 
 
-# 현재 파일(pages/2_통계_대시보드.py)을 기준으로
-# 한 단계 위의 프로젝트 루트(mle-01-p1-team5)를 가져옴
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
-# pages 폴더에서 Streamlit을 직접 실행해도
-# 프로젝트 루트의 src 모듈을 import할 수 있도록 경로 추가
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 
-# 여행경보 지도 생성에 필요한 함수 import
 from src.viz_map import load_alarm, make_alarm_map
+from src.alarm_stats import render_alarm_distribution   # 추가: import는 상단에 모음
 
 
 # =========================================================
@@ -42,24 +38,24 @@ render_sidebar()
 # 데이터 불러오기
 # =========================================================
 
-# 여행경보 지도 데이터
-# Streamlit이 재실행될 때마다 CSV를 다시 읽지 않도록 캐싱
 @st.cache_data
 def load():
     alarm_path = ROOT_DIR / "data" / "alarm_clean.csv"
     return load_alarm(alarm_path)
 
 
-# 연도별 국가 안전정보 TOP10 데이터
 @st.cache_data
 def load_safety_stats():
     safety_stats_path = ROOT_DIR / "data" / "safety_stats.csv"
     return pd.read_csv(safety_stats_path)
 
 
-# 데이터 로드
 df = load()
 safety_info_stats = load_safety_stats()
+
+# 삭제: 여기 있던 st.divider() / render_alarm_distribution() 3줄 제거
+#       탭 생성 전이라 화면 맨 위에 그려졌음. tab1 안으로 이동함
+
 
 # =========================================================
 # 월별 안전공지 데이터 불러오기
@@ -77,13 +73,11 @@ def load_safety_notice():
         encoding="utf-8-sig"
     )
 
-    # 작성일을 날짜형으로 변환
     notice_df["안전공지_작성일"] = pd.to_datetime(
         notice_df["안전공지_작성일"],
         errors="coerce"
     )
 
-    # 연도 / 월 생성
     notice_df["연도"] = (
         notice_df["안전공지_작성일"]
         .dt.year
@@ -99,11 +93,9 @@ def load_safety_notice():
     return notice_df
 
 
-# 데이터 로드
 notice_df = load_safety_notice()
 
 
-# 월별 · 대륙별 안전공지 건수 집계
 monthly_continent = (
     notice_df
     .dropna(subset=["대륙명", "연도", "월"])
@@ -123,7 +115,7 @@ tab1, tab2, tab3 = st.tabs([
 ])
 
 # =========================================================
-# TAB 1. 국가별 여행경보 지도
+# TAB 1. 국가별 여행경보 지도 + 분포 분석
 # =========================================================
 
 with tab1:
@@ -140,17 +132,16 @@ with tab1:
         "챗봇이나 검색 서비스를 이용해주세요."
     )
 
-    # =========================================================
+    # 추가: 지도 바로 아래에 분포 분석. tab1 안이라 다른 탭에서는 안 보임
+    render_alarm_distribution()
+
+# =========================================================
 # TAB 2. 연도별 국가 안전정보 TOP 10
 # =========================================================
 
 with tab2:
 
     st.subheader("연도별 국가 안전정보 TOP 10")
-
-    # -------------------------
-    # 연도 선택 슬라이더
-    # -------------------------
 
     min_year = int(
         safety_info_stats.loc[
@@ -175,17 +166,12 @@ with tab2:
         key="top10_year"
     )
 
-    # -------------------------
-    # 선택 연도 데이터
-    # -------------------------
-
     year_data = safety_info_stats[
         safety_info_stats["year"] == selected_year
     ]
 
     total_count = year_data["count"].sum()
 
-    # TOP 10
     top10 = (
         year_data
         .nlargest(10, "count")
@@ -193,10 +179,6 @@ with tab2:
     )
 
     top10_count = top10["count"].sum()
-
-    # -------------------------
-    # 막대그래프
-    # -------------------------
 
     fig_top10 = px.bar(
         top10,
@@ -227,17 +209,13 @@ with tab2:
         use_container_width=True
     )
 
-    # =========================================================
+# =========================================================
 # TAB 3. 대륙별 월간 안전공지 추이
 # =========================================================
 
 with tab3:
 
     st.subheader("대륙별 월간 안전공지 추이")
-
-    # -------------------------
-    # 연도 / 대륙 선택
-    # -------------------------
 
     filter_col1, filter_col2 = st.columns(2)
 
@@ -278,10 +256,6 @@ with tab3:
             key="notice_continent"
         )
 
-    # -------------------------
-    # 선택 조건 적용
-    # -------------------------
-
     chart_df = monthly_continent.copy()
 
     if selected_notice_year != "전체":
@@ -294,7 +268,6 @@ with tab3:
             chart_df["대륙명"] == selected_continent
         ]
 
-    # 연월 표시
     chart_df["연월표시"] = chart_df.apply(
         lambda x: (
             f"{str(int(x['연도']))[2:]}년 "
@@ -302,10 +275,6 @@ with tab3:
         ),
         axis=1
     )
-
-    # -------------------------
-    # 선 그래프
-    # -------------------------
 
     fig_notice = px.line(
         chart_df,
