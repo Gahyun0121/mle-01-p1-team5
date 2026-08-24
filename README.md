@@ -29,28 +29,9 @@
 - **근거 기반 챗봇** — 질문에 답할 때 참조한 외교부 문서와 작성일을 함께 표시하고, 근거를 찾지 못하면 자료가 없다고 답합니다.
 - **여행지·시기 추천 연계** — 추천 데이터가 있는 43개국은 추천 도시·테마·방문 시기를 함께 표시합니다.
 
-## 4. 아키텍처
+## 4. 시스템 아키텍처
 
-```mermaid
-flowchart TD
-    subgraph prep["사전 준비"]
-        A1["외교부 OpenAPI<br/>여행경보·안전공지·사건사고"] --> A2["collect_*.py<br/>수집"]
-        A3["Kaggle<br/>travel_destinations.csv"] --> A4["preprocess<br/>HTML 정제 · iso3 통합 · 43개국 필터"]
-        A2 --> A4
-        A4 --> A5["data/*.csv<br/>정형 데이터"]
-        A4 --> A6["청킹 · 임베딩<br/>BAAI/bge-m3"]
-        A6 --> A7[("ChromaDB<br/>travel_safety")]
-    end
-
-    subgraph run["질문이 들어왔을 때"]
-        B1["사용자 질문<br/>+ 선택한 국가"] --> B2["retriever.py<br/>국가 필터 + Top-K 검색"]
-        A7 --> B2
-        B2 --> B3["generator.py<br/>프롬프트 구성 → GPT-4o-mini"]
-        B3 --> B4["답변 + 출처·작성일"]
-    end
-
-    A5 --> C1["Streamlit<br/>대시보드 · 국가 상세"]
-```
+(추후 업로드 예정)
 
 ## 5. 기술 스택
 
