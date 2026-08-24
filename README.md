@@ -2,7 +2,7 @@
 
 > 외교부 여행경보·안전공지·사건사고 데이터를 수집·전처리하고, 근거와 함께 답하는 RAG 챗봇과 분석 대시보드를 하나의 Streamlit 앱으로 제공합니다.
 
-🔗 데모: (배포 URL 또는 "로컬 실행") · 📊 분석 보고서: (링크) · 📓 팀 노션: (링크)
+🔗 데모: [🌐 안전한 해외여행의 시작](https://mle-01-p1-team5-vyx7lscyjye2bon7hj5wgz.streamlit.app/) · 📊 분석 보고서: [EDA 분석 보고서](https://github.com/encore-ai-campus/mle-01-p1-team5/blob/main/REPORT.md) · 📓 팀 노션: [단위 프로젝트 노션](https://app.notion.com/p/3b5fceb573c380ed8d82e722df5606f1)
 
 ---
 
