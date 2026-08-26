@@ -1,32 +1,23 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+_out = open("eval_before.txt", "w", encoding="utf-8")
+
+
+def print(*args, **kwargs):  # noqa: A001
+    kwargs["file"] = _out
+    __builtins__.print(*args, **kwargs)
+
+
 import pandas as pd
 
-
-# ============================================================
-# 1. 임베딩 모델
-# ============================================================
-
-embeddings = HuggingFaceEmbeddings(
-    model_name="BAAI/bge-m3",
-)
+from src.retriever import search_documents
 
 
 # ============================================================
-# 2. 기존 Vector DB 불러오기
-# ============================================================
-
-vector_db = Chroma(
-    persist_directory="data/vector_db",
-    embedding_function=embeddings,
-    collection_name="travel_safety",
-)
-
-print("Vector DB 저장 개수:", vector_db._collection.count())
-
-
-# ============================================================
-# 3. 평가 질문
+# 1. 평가 질문
 # ============================================================
 
 questions = [
@@ -184,7 +175,7 @@ questions = [
 
 
 # ============================================================
-# 4. Gold Set
+# 2. Gold Set
 # ============================================================
 
 gold_set = {
@@ -222,10 +213,11 @@ gold_set = {
 
 
 # ============================================================
-# 5. Retriever 실행
+# 3. Retriever 실행
 # ============================================================
 
 retrieval_results = {}
+retrieval_scores = {}
 
 for item in questions:
     query_id = item["id"]
@@ -237,34 +229,26 @@ for item in questions:
     print(f"국가 필터: {country}")
     print("=" * 100)
 
-    if country:
-        results = vector_db.similarity_search(
-            query,
-            k=5,
-            filter={"국가명": country},
-        )
-    else:
-        results = vector_db.similarity_search(
-            query,
-            k=5,
-        )
+    # 챗봇 페이지와 동일한 형태로 전달
+    # country가 None이면 국가 없이 질문만 넘김 (앱에서는 발생하지 않는 경우)
+    search_query = f"{country} {query}" if country else query
 
-    retrieval_results[query_id] = [
-        doc.metadata["chunk_id"]
-        for doc in results
-    ]
+    docs = search_documents(search_query)
 
-    print("검색 결과 개수:", len(results))
+    retrieval_results[query_id] = [d["chunk_id"] for d in docs]
+    retrieval_scores[query_id] = [d["score"] for d in docs]
 
-    for rank, doc in enumerate(results, start=1):
+    print("검색 결과 개수:", len(docs))
+
+    for rank, d in enumerate(docs, start=1):
         print(f"\n=== 검색 결과 {rank} ===")
-        print("chunk_id:", doc.metadata["chunk_id"])
+        print("chunk_id:", d["chunk_id"], "/ score:", d["score"])
         print("내용:")
-        print(doc.page_content[:500])
+        print(d["content"][:500])
 
 
 # ============================================================
-# 6. 평가 함수
+# 4. 평가 함수
 # ============================================================
 
 def evaluate_retriever(gold_set, retrieval_results):
@@ -283,10 +267,18 @@ def evaluate_retriever(gold_set, retrieval_results):
         hit_at_5 = 1 if len(correct_chunks) > 0 else 0
 
         # Precision@5
-        precision_at_5 = len(correct_chunks) / len(retrieved_chunks)
+        # 임계값(0.25) 적용으로 검색 결과가 0건일 수 있어 0으로 나누기 방지
+        if len(retrieved_chunks) > 0:
+            precision_at_5 = len(correct_chunks) / len(retrieved_chunks)
+        else:
+            precision_at_5 = 0.0
 
         # Recall@5
-        recall_at_5 = len(correct_chunks) / len(gold_chunks)
+        # gold가 비어 있는 문항(답변 불가 유형)은 검색 지표 대상이 아니므로 0 처리
+        if len(gold_chunks) > 0:
+            recall_at_5 = len(correct_chunks) / len(gold_chunks)
+        else:
+            recall_at_5 = 0.0
 
         # MRR
         mrr = 0
@@ -302,6 +294,7 @@ def evaluate_retriever(gold_set, retrieval_results):
             "query_id": query_id,
             "gold_chunks": gold_chunks,
             "retrieved_chunks": retrieved_chunks,
+            "retrieved_count": len(retrieved_chunks),
             "correct_chunks": correct_chunks,
             "first_gold_rank": first_gold_rank,
             "Hit@5": hit_at_5,
@@ -314,7 +307,7 @@ def evaluate_retriever(gold_set, retrieval_results):
 
 
 # ============================================================
-# 7. 평가 실행
+# 5. 평가 실행
 # ============================================================
 
 evaluation_results = evaluate_retriever(
@@ -326,7 +319,7 @@ df_eval = pd.DataFrame(evaluation_results)
 
 
 # ============================================================
-# 8. 질문별 전체 평가 결과
+# 6. 질문별 전체 평가 결과
 # ============================================================
 
 print("\n")
@@ -352,12 +345,13 @@ print(
 
 
 # ============================================================
-# 9. 핵심 점수만 보기
+# 7. 핵심 점수만 보기
 # ============================================================
 
 df_score = df_eval[
     [
         "query_id",
+        "retrieved_count",
         "Hit@5",
         "Precision@5",
         "Recall@5",
@@ -374,7 +368,7 @@ print(df_score.to_string(index=False))
 
 
 # ============================================================
-# 10. 전체 평균 성능
+# 8. 전체 평균 성능
 # ============================================================
 
 average_scores = df_score[
@@ -395,7 +389,34 @@ print(average_scores)
 
 
 # ============================================================
-# 11. 검색 실패 문항
+# 9. 임계값에 걸려 5건 미만으로 줄어든 문항
+# 실제 앱 검색 경로로 바꾼 뒤 새로 생긴 확인 항목
+# ============================================================
+
+thin_queries = df_eval[df_eval["retrieved_count"] < 5]
+
+print("\n")
+print("=" * 100)
+print("검색 결과가 5건 미만인 문항 (유사도 0.25 미만 제외됨)")
+print("=" * 100)
+
+if len(thin_queries) == 0:
+    print("모든 문항이 5건을 채웠습니다.")
+else:
+    print(
+        thin_queries[
+            [
+                "query_id",
+                "retrieved_count",
+                "Hit@5",
+                "Recall@5",
+            ]
+        ].to_string(index=False)
+    )
+
+
+# ============================================================
+# 10. 검색 실패 문항
 # ============================================================
 
 failed_queries = df_eval[
@@ -425,7 +446,7 @@ else:
 
 
 # ============================================================
-# 12. 부분 성공 문항
+# 11. 부분 성공 문항
 # Recall@5가 0보다 크고 1보다 작은 경우
 # ============================================================
 
@@ -453,3 +474,5 @@ else:
             ]
         ].to_string(index=False)
     )
+
+_out.close()
