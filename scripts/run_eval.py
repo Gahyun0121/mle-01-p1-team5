@@ -1,44 +1,35 @@
 import sys
 from pathlib import Path
+
 sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+import pandas as pd
 
 from src.retriever import search_documents
 from src.generator import generate_answer
 
-# generator 평가용 질문 리스트
-questions = [
-    ("미국", "여자 혼자 미국 여행해도 괜찮을까? 밤에는 많이 위험해?"),
-    ("미국", "미국 여행 중 렌터카에 짐이나 귀중품을 두고 내려도 괜찮아?"),
-    ("미국", "미국 여행할 때 총기 범죄도 조심해야 해?"),
-    ("일본", "일본 여행 중 지진이 자주 발생한다는데 많이 걱정해야 해?"),
-    ("일본", "일본 여행 가면 한국인 관광객을 대상으로 바가지를 씌우는 경우가 많아?"),
-    ("일본", "홋카이도에서 렌터카로 여행하려는데 특히 조심해야 할 점이 뭐야?"),
-    ("중국", "중국 여행 가는데 전반적인 치안은 어떤 편이야?"),
-    ("중국", "중국 관광지에서 가방이나 카메라를 도난당하면 어떻게 처리해야 해?"),
-    ("중국", "티베트 라싸 같은 지역은 그냥 자유롭게 여행할 수 있는 게 아니야?"),
-    ("베트남", "베트남에서 휴대폰 들고 걸어 다니면 날치기 위험이 커?"),
-    ("베트남", "베트남 공항에서 Grab 직원이라고 접근하는 사람이 있으면 믿어도 돼?"),
-    ("베트남", "베트남에서는 전자담배를 가지고만 있어도 문제가 될 수 있어?"),
-    ("태국", "태국 여행 가는데 치안 괜찮아?"),
-    ("태국", "태국 야시장이나 클럽처럼 사람이 많은 곳에서는 어떤 범죄를 조심해야 해?"),
-    ("필리핀", "필리핀 요즘 치안 괜찮아? 강도나 소매치기 위험이 커?"),
-    ("필리핀", "필리핀에서 총기나 흉기를 든 강도를 만나면 어떻게 해야 해?"),
-    ("홍콩", "홍콩에 태풍 오면 여행 일정은 어떻게 해야 해?"),
-    ("홍콩", "분실 신고한 여권을 다시 찾았는데 그대로 써도 돼?"),
-    ("그리스", "그리스 여행 가는데 산불이나 폭염 때문에 위험하지 않을까?"),
-    ("그리스", "아테네 근처에서 산불 대피령이 내려지면 관광객도 바로 이동해야 해?"),
-    ("남아프리카공화국", "남아공 자유여행은 치안 때문에 많이 위험해?"),
-    ("나이지리아", "나이지리아는 여행을 고민할 정도로 납치나 강도 위험이 큰 편이야?"),
-    ("케냐", "케냐 여행할 때 치안 위험은 어느 정도로 생각해야 해?"),
-    ("몰디브", "몰디브 리조트면 치안 걱정은 거의 안 해도 돼?"),
-    ("몰디브", "여자 혼자 몰디브 리조트에 머물 때 성범죄나 절도도 조심해야 해?"),
-    ("몽골", "여자 혼자 몽골 여행해도 괜찮을까?"),
-    ("아랍에미리트", "두바이 클럽에서 모르는 사람이 주는 음료를 받아 마셔도 괜찮아?"),
-]
+# 평가셋을 코드에서 분리 — 검색 평가와 같은 파일을 공유
+# keep_default_na=False : 빈 gold_chunks가 NaN으로 읽히는 것 방지
+eval_df = pd.read_csv("data/eval_set.csv", keep_default_na=False)
 
 with open("eval_result.md", "w", encoding="utf-8") as f:
-    for i, (country, q) in enumerate(questions, 1):
-        docs = search_documents(f"{country} {q}")
-        answer = generate_answer(q, docs, country)
-        f.write(f"## Q{i:02d} [{country}] {q}\n\n{answer}\n\n---\n\n")
-        print(f"Q{i:02d} 완료")
+    for _, row in eval_df.iterrows():
+        qid = row["query_id"]
+        qtype = row["type"]
+        country = row["country"]
+        question = row["question"]
+
+        # 챗봇 페이지와 동일한 호출 형태
+        docs = search_documents(f"{country} {question}")
+        answer = generate_answer(question, docs, country)
+
+        f.write(f"## {qid} [{qtype}] {country} — {question}\n\n")
+        f.write(f"검색 {len(docs)}건: {[d['chunk_id'] for d in docs]}\n\n")
+
+        # C 유형은 거절 여부가 판정 기준이라 사유를 같이 기록
+        if qtype == "C":
+            f.write(f"> 답변 불가 사유: {row['note']}\n\n")
+
+        f.write(f"{answer}\n\n---\n\n")
+
+        print(f"{qid} 완료")

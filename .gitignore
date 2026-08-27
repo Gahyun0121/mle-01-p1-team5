@@ -31,9 +31,6 @@ check.py
 check_threshold.py
 test_gen.py
 
-# generator test result
-eval_result.md
-
 # 개인용
 data/vector_db/
 docs_dump.txt
