@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 from src.sidebar import render_sidebar
 
-st.set_page_config(page_title="해외여행 안전정보", layout="wide")
+st.set_page_config(page_title="트립가드", layout="wide")
 render_sidebar()
 
 ROOT = Path(__file__).resolve().parent
@@ -84,7 +84,7 @@ def load_alarm():
 
 st.markdown("""
 <div class="hero">
-    <div class="hero-title">🌐 안전한 해외여행의 시작</div>
+    <div class="hero-title">🌐 트립가드</div>
     <div class="hero-sub">
         외교부가 발표하는 국가별 여행경보와 안전공지, 현지에서 실제로 발생한 사건사고 정보를<br>
         여행지 추천 데이터와 함께 모아 어디로 갈지부터 무엇을 조심할지까지 한 곳에서 확인합니다.
