@@ -32,7 +32,6 @@ check_threshold.py
 test_gen.py
 
 # 개인용
-data/vector_db/
 docs_dump.txt
 dump_docs.py
 eval_before.txt
